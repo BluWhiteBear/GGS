@@ -55,88 +55,93 @@
                         <p><b>Version B0.6.XXX</b> - 5/XX/2024</p>
                         <h4>Developer Notes: </h4>
                         <p>Our first post-beta launch update! We've been hard at work over the past few weeks working on bug fixes, performance improvements, new quality of live (QOL) features, and disk handling improvements. We're excited for everybody to get their hands on these changes, and appreciate all of the feedback we've received thus far! A few of the new features and bug fixes that are in the works won't be featured in this update, as they need a little more time in the oven; rest assured we've received your feedback and are working on it! - Blü</p>
-                        <hr>
-                        <h5>New Features: </h5>
-                        <dl>
-                            <dt>PCVR is Back!</dt>
-                            <dd>Due to technical issues, the PCVR version of Hex VR was temporarily removed for download. This has been rectified, and is now available once again to download on <a href="https://sidequestvr.com/app/13536/hex-vr-applab-beta">SideQuest</a>. The HMDs <u>officially</u> supported for PCVR remains restricted to Meta headsets.</dd>
-                        
-                            <dt>Self Mute Toggle</dt>
-                            <dd>This can be found on page 2 of the "Audio" settings. Players can now mute themselves in-game, giving them more control over when they want to be heard.</dd>
-                        
-                            <dt>Mute Others Toggle</dt>
-                            <dd>This can be found next to player names in the personal menu's player list. Allows you to mute others for disruptive voice chat.</dd>
-                        
-                            <dt>Microphone Activity Indicator</dt>
-                        
-                            <dt>Turn Mode Settings</dt>
-                            <dd>This can be found on page 1 of the "Input" settings. Despite there being an in game option for it already, changing the turn mode to "Snap" didn't do anything. This has been corrected.</dd>
-                        
-                            <dt>HUD Settings</dt>
-                            <dd>This can be found on page 1 of the "Graphics" settings. Different HUD modes are now available to allow the player to find their own balance between visual clutter and information.</dd>
-                        
-                            <dt>Score Reset Button</dt>
-                            <dd>The Stadium Pedestal now features a button that resets the lobby's score.</dd>
-                        
-                            <dt>Basic Inputs Tutorial</dt>
-                        </dl>
-                        <hr>
-                        <h4>Improvements: </h4>
-                        <dl>
-                            <dt>Disk Handling Improvements</dt>
-                            <dd>Made several changes to throwing based on player feedback. Influence of the wrist has been reduced, and the influence of the arm has been reduced slightly. These changes will result in the disk feeling a little heavier, and a little more stable.</dd>
-                        
-                            <dt>Disk Behavior Improvements</dt>
-                            <dd>Made several changes to disk behavior based on player feedback. The disk should preserve less velocity after bouncing.</dd>
-                        
-                            <dt>Performance Optimizations</dt>
-                            <dd>Framerates across the board should see marginal improvements.</dd>
-                        
-                            <dt>Networking Improvements</dt>
-                            <dd>Player positional smoothing has been tweaked. We'll continue to monitor these changes, as they still need additional work.</dd>
-                        
-                            <dt>Microphone Sensitivity Improvements</dt>
-                            <dd>The threshold for picking up Microphone activity has been raised slightly. This should reduce background noise pickup</dd>
-                        
-                            <dt>Player Display Name Filtering</dt>
-                            <dd>Player Display Names now have profanity filtering. If you come across someone with an offensive Display Name, please report it to staff by DMing <a href="https://discord.com/users/1072013856471273543">Hex-Modmail#9221</a> on Discord with details including the Display name of the offending Player, as well as the approximate date & time of the encounter.</dd>
-                        
-                            <dt>Spectator Mode Improvements</dt>
-                            <dd>Spectators are now transparent, and cannot be grabbed by other players.</dd>
-                        
-                            <dt>Improved Player Collision</dt>
-                            <dd>Players should be slightly easier to grab, and the head collision volume used for headbutting has been reduced by 30%</dd>
-                        
-                            <dt>Improved Stadium Collision</dt>
-                            <dd>Multiple problematic areas of the Stadium have had their collision adjusted for gameplay purposes. We will continue to monitor these changes</dd>
-                        
-                            <dt>UI Improvements</dt>
-                            <dd>Some menus have been streamlined. In addition, the player HUD has received a minor visual overhaul</dd>
-                        
-                            <dt>Graphical Improvements</dt>
-                            <dd>Multiple assets have been improved including Stadium textures, Armor Textures, and Particle Effects</dd>
-                        
-                            <dt>Lighting Improvements</dt>
-                            <dd>Improved lighting fidelity while also reducing memory consumption</dd>
-                        
-                            <dt>Audio Improvements</dt>
-                            <dd>Sound attenuation in the Stadium has been tweaked. This will result in slightly less echoey audio</dd>
-                        </dl>
-                        <hr>
-                        <h4>Bug Fixes: </h4>
-                        <dl>
-                            <dt>"Air Grabbing" has been removed</dt>
-                            <dd>A bug allowed Players to grab the air as though they were grabbing a solid surface and gain an amount of speed greater than intended. This has been patched. As fun as it is, it's by far the most reported issue in game currently, and is widely considered greatly disruptive.</dd>
-                        
-                            <dt>"Remote Grabbing" has been removed</dt>
-                            <dd>Previously, Players were able to pull themselves away from a surface while maintaining a grab over distances that were unintended. This has been patched.</dd>
-                        
-                            <dt>Personal Disk no longer collides with the main Stadium Disk</dt>
-                            <dd>Previously, the Player's Personal Disk was capable of colliding with the main Stadium disk during certain conditions. This has been patched; sorry ping-pong enjoyers</dd>
-                        
-                            <dt>Fixed a bug that would cause the Player's Personal Menu to lag behind if summoned while moving</dt>
-                        </dl>
-                        <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_2" aria-expanded="false" aria-controls="patchnotes_2">
+                            Show More
+                        </button>
+                        <div class="collapse" id="patchnotes_2">
+                            <hr>
+                            <h5>New Features: </h5>
+                            <dl>
+                                <dt>PCVR is Back!</dt>
+                                <dd>Due to technical issues, the PCVR version of Hex VR was temporarily removed for download. This has been rectified, and is now available once again to download on <a href="https://sidequestvr.com/app/13536/hex-vr-applab-beta">SideQuest</a>. The HMDs <u>officially</u> supported for PCVR remains restricted to Meta headsets.</dd>
+                            
+                                <dt>Self Mute Toggle</dt>
+                                <dd>This can be found on page 2 of the "Audio" settings. Players can now mute themselves in-game, giving them more control over when they want to be heard.</dd>
+                            
+                                <dt>Mute Others Toggle</dt>
+                                <dd>This can be found next to player names in the personal menu's player list. Allows you to mute others for disruptive voice chat.</dd>
+                            
+                                <dt>Microphone Activity Indicator</dt>
+                            
+                                <dt>Turn Mode Settings</dt>
+                                <dd>This can be found on page 1 of the "Input" settings. Despite there being an in game option for it already, changing the turn mode to "Snap" didn't do anything. This has been corrected.</dd>
+                            
+                                <dt>HUD Settings</dt>
+                                <dd>This can be found on page 1 of the "Graphics" settings. Different HUD modes are now available to allow the player to find their own balance between visual clutter and information.</dd>
+                            
+                                <dt>Score Reset Button</dt>
+                                <dd>The Stadium Pedestal now features a button that resets the lobby's score.</dd>
+                            
+                                <dt>Basic Inputs Tutorial</dt>
+                            </dl>
+                            <hr>
+                            <h4>Improvements: </h4>
+                            <dl>
+                                <dt>Disk Handling Improvements</dt>
+                                <dd>Made several changes to throwing based on player feedback. Influence of the wrist has been reduced, and the influence of the arm has been reduced slightly. These changes will result in the disk feeling a little heavier, and a little more stable.</dd>
+                            
+                                <dt>Disk Behavior Improvements</dt>
+                                <dd>Made several changes to disk behavior based on player feedback. The disk should preserve less velocity after bouncing.</dd>
+                            
+                                <dt>Performance Optimizations</dt>
+                                <dd>Framerates across the board should see marginal improvements.</dd>
+                            
+                                <dt>Networking Improvements</dt>
+                                <dd>Player positional smoothing has been tweaked. We'll continue to monitor these changes, as they still need additional work.</dd>
+                            
+                                <dt>Microphone Sensitivity Improvements</dt>
+                                <dd>The threshold for picking up Microphone activity has been raised slightly. This should reduce background noise pickup</dd>
+                            
+                                <dt>Player Display Name Filtering</dt>
+                                <dd>Player Display Names now have profanity filtering. If you come across someone with an offensive Display Name, please report it to staff by DMing <a href="https://discord.com/users/1072013856471273543">Hex-Modmail#9221</a> on Discord with details including the Display name of the offending Player, as well as the approximate date & time of the encounter.</dd>
+                            
+                                <dt>Spectator Mode Improvements</dt>
+                                <dd>Spectators are now transparent, and cannot be grabbed by other players.</dd>
+                            
+                                <dt>Improved Player Collision</dt>
+                                <dd>Players should be slightly easier to grab, and the head collision volume used for headbutting has been reduced by 30%</dd>
+                            
+                                <dt>Improved Stadium Collision</dt>
+                                <dd>Multiple problematic areas of the Stadium have had their collision adjusted for gameplay purposes. We will continue to monitor these changes</dd>
+                            
+                                <dt>UI Improvements</dt>
+                                <dd>Some menus have been streamlined. In addition, the player HUD has received a minor visual overhaul</dd>
+                            
+                                <dt>Graphical Improvements</dt>
+                                <dd>Multiple assets have been improved including Stadium textures, Armor Textures, and Particle Effects</dd>
+                            
+                                <dt>Lighting Improvements</dt>
+                                <dd>Improved lighting fidelity while also reducing memory consumption</dd>
+                            
+                                <dt>Audio Improvements</dt>
+                                <dd>Sound attenuation in the Stadium has been tweaked. This will result in slightly less echoey audio</dd>
+                            </dl>
+                            <hr>
+                            <h4>Bug Fixes: </h4>
+                            <dl>
+                                <dt>"Air Grabbing" has been removed</dt>
+                                <dd>A bug allowed Players to grab the air as though they were grabbing a solid surface and gain an amount of speed greater than intended. This has been patched. As fun as it is, it's by far the most reported issue in game currently, and is widely considered greatly disruptive.</dd>
+                            
+                                <dt>"Remote Grabbing" has been removed</dt>
+                                <dd>Previously, Players were able to pull themselves away from a surface while maintaining a grab over distances that were unintended. This has been patched.</dd>
+                            
+                                <dt>Personal Disk no longer collides with the main Stadium Disk</dt>
+                                <dd>Previously, the Player's Personal Disk was capable of colliding with the main Stadium disk during certain conditions. This has been patched; sorry ping-pong enjoyers</dd>
+                            
+                                <dt>Fixed a bug that would cause the Player's Personal Menu to lag behind if summoned while moving</dt>
+                            </dl>
+                            <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                        </div>
                     </div>
                     <div class="col-lg-4"></div>
                 </div>
@@ -151,45 +156,50 @@
                         <p><b>Version B0.5.372</b> - 3/29/2024</p>
                         <h5>Developer Notes: </h5>
                         <p>Hex VR is Officially in Open Beta! We are excited to introduce the first of many Beta updates to come for Hex VR. We are excited to see the community grow and evolve as we continue to develop the game. - Blü</p>
-                        <hr>
-                        <h5>New Features: </h5>
-                        <dl>
-                            <dt>In Game Server Browser</dt>
-                            <dt>Display Name System</dt>
-                            <dt>Full Body Avatar IK</dt>
-                            <dt>Team System</dt>
-                            <dt>Regrabbing (Experimental*)</dt>
-                            <dt>Pitch and Roll (Experimental*)</dt>
-                            <dt>Spectator Mode (Experimental*)</dt>
-                            <dt>App Lab</dt>
-                        </dl>
-                        <p>Experimental features are highly buggy and unfinished, but contribute to gameplay enough to justify releasing in an early state*</p>
-                        <hr>
-                        <h5>Improvements: </h5>
-                        <dl>
-                            <dt>Menu Improvements</dt>
-                            <dt>Improved Multiplayer Stability</dt>
-                            <dt>Improved Movement</dt>
-                            <dt>Improved Disk Handling</dt>
-                            <dt>Improved Performance Optimizations</dt>
-                            <dt>Improved Settings Menu</dt>
-                            <dt>Improved Arena Geometry</dt>
-                            <dt>Audio Improvements</dt>
-                            <dt>Voice Chat Improvements</dt>
-                            <dt>Graphical Improvements</dt>
-                            <dt>Increased Total Player Cap</dt>
-                            <dt>Numerous Bug Fixes</dt>
-                        </dl>
-                        <hr>
-                        <h5>Bug Fixes: </h5>
-                        <dl>
-                            <dt>Disk no longer "slingshots" when being pulled through geometry</dt>
-                            <dt>Fixed CV1 throwing</dt>
-                            <dt>Fixed Settings Menu "up" buttons not working</dt>
-                            <dt>Eye animation will no longer stutter and skip</dt>
-                            <dt>Player HUD no longer clips through geometry</dt>
-                        </dl>
-                        <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_1" aria-expanded="false" aria-controls="patchnotes_1">
+                            Show More
+                        </button>
+                        <div class="collapse" id="patchnotes_1">
+                            <hr>
+                            <h5>New Features: </h5>
+                            <dl>
+                                <dt>In Game Server Browser</dt>
+                                <dt>Display Name System</dt>
+                                <dt>Full Body Avatar IK</dt>
+                                <dt>Team System</dt>
+                                <dt>Regrabbing (Experimental*)</dt>
+                                <dt>Pitch and Roll (Experimental*)</dt>
+                                <dt>Spectator Mode (Experimental*)</dt>
+                                <dt>App Lab</dt>
+                            </dl>
+                            <p>Experimental features are highly buggy and unfinished, but contribute to gameplay enough to justify releasing in an early state*</p>
+                            <hr>
+                            <h5>Improvements: </h5>
+                            <dl>
+                                <dt>Menu Improvements</dt>
+                                <dt>Improved Multiplayer Stability</dt>
+                                <dt>Improved Movement</dt>
+                                <dt>Improved Disk Handling</dt>
+                                <dt>Improved Performance Optimizations</dt>
+                                <dt>Improved Settings Menu</dt>
+                                <dt>Improved Arena Geometry</dt>
+                                <dt>Audio Improvements</dt>
+                                <dt>Voice Chat Improvements</dt>
+                                <dt>Graphical Improvements</dt>
+                                <dt>Increased Total Player Cap</dt>
+                                <dt>Numerous Bug Fixes</dt>
+                            </dl>
+                            <hr>
+                            <h5>Bug Fixes: </h5>
+                            <dl>
+                                <dt>Disk no longer "slingshots" when being pulled through geometry</dt>
+                                <dt>Fixed CV1 throwing</dt>
+                                <dt>Fixed Settings Menu "up" buttons not working</dt>
+                                <dt>Eye animation will no longer stutter and skip</dt>
+                                <dt>Player HUD no longer clips through geometry</dt>
+                            </dl>
+                            <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                        </div>
                     </div>
                     <div class="col-lg-4"></div>
                 </div>
@@ -240,7 +250,8 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
