@@ -89,6 +89,113 @@
                     <div class="col-lg-8">
                         <img src="assets/img/HexVR_Logo_1.png" alt="Image Description" height="80px" style="border: 3px solid white;"/>
                         <h1 class="font-weight-light">Hex VR Patch Notes</h1>
+                        <h3 class="font-weight-light">Quality of Life | Major Update</h3>
+                        <p><b>Version B0.6.XXX</b> - 5/XX/2024</p>
+                        <h4>Developer Notes: </h4>
+                        <p>Our first post-beta launch update! We've been hard at work over the past few weeks working on bug fixes, performance improvements, new quality of live (QOL) features, and disk handling improvements. We're excited for everybody to get their hands on these changes, and appreciate all of the feedback we've received thus far! A few of the new features and bug fixes that are in the works won't be featured in this update, as they need a little more time in the oven; rest assured we've received your feedback and are working on it! - Blü</p>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_2" aria-expanded="false" aria-controls="patchnotes_2">
+                            Show More
+                        </button>
+                        <div class="collapse" id="patchnotes_2">
+                            <hr>
+                            <h5>New Features: </h5>
+                            <dl>
+                                <dt>PCVR is Back!</dt>
+                                <dd>Due to technical issues, the PCVR version of Hex VR was temporarily removed for download. This has been rectified, and is now available once again to download on <a href="https://sidequestvr.com/app/13536/hex-vr-applab-beta">SideQuest</a>. The HMDs <u>officially</u> supported for PCVR remains restricted to Meta headsets.</dd>
+                            
+                                <dt>Self Mute Toggle</dt>
+                                <dd>This can be found on page 2 of the "Audio" settings. Players can now mute themselves in-game, giving them more control over when they want to be heard.</dd>
+                            
+                                <dt>Mute Others Toggle</dt>
+                                <dd>This can be found next to player names in the personal menu's player list. Allows you to mute others for disruptive voice chat.</dd>
+                            
+                                <dt>Microphone Activity Indicator</dt>
+                                <dd>Player Overhead NameTags now feature an icon indicating whether or not their microphone is actively transmitting audio.</dd>
+                            
+                                <dt>Turn Mode Settings</dt>
+                                <dd>This can be found on page 1 of the "Input" settings. Despite there being an in game option for it already, changing the turn mode to "Snap" didn't do anything. This has been corrected.</dd>
+                            
+                                <dt>HUD Settings</dt>
+                                <dd>This can be found on page 1 of the "Graphics" settings. Different HUD modes are now available to allow the player to find their own balance between visual clutter and information.</dd>
+                            
+                                <dt>Score Reset Button</dt>
+                                <dd>The Stadium Pedestal now features a button that resets the lobby's score.</dd>
+                            
+                                <dt>Basic Inputs Tutorial</dt>
+                                <dd>The main menu now features a "Tutorial" button. When pressed, it displays a series of images that should hopefully help new players get familiar with the input scheme.</dd>
+                            </dl>
+                            <hr>
+                            <h4>Improvements: </h4>
+                            <dl>
+                                <dt>Disk Handling Improvements</dt>
+                                <dd>Made several changes to throwing based on player feedback. Influence of the wrist has been reduced, and the influence of the arm has been reduced slightly. These changes will result in the disk feeling a little heavier, and a little more stable.</dd>
+                            
+                                <dt>Disk Behavior Improvements</dt>
+                                <dd>Made several changes to disk behavior based on player feedback. The disk should preserve less velocity after bouncing.</dd>
+                            
+                                <dt>Performance Optimizations</dt>
+                                <dd>Framerates across the board should see marginal improvements.</dd>
+                            
+                                <dt>Networking Improvements</dt>
+                                <dd>Player positional smoothing has been tweaked. We'll continue to monitor these changes, as they still need additional work.</dd>
+                            
+                                <dt>Microphone Sensitivity Improvements</dt>
+                                <dd>The threshold for picking up Microphone activity has been raised slightly. This should reduce background noise pickup.</dd>
+                            
+                                <dt>Player Display Name Filtering</dt>
+                                <dd>Player Display Names now have profanity filtering. If you come across someone with an offensive Display Name, please report it to staff by DMing <a href="https://discord.com/users/1072013856471273543">Hex-Modmail#9221</a> on Discord with details including the Display name of the offending Player, as well as the approximate date & time of the encounter.</dd>
+                            
+                                <dt>Spectator Mode Improvements</dt>
+                                <dd>Spectators are now transparent, and cannot be grabbed by other players.</dd>
+                            
+                                <dt>Improved Player Collision</dt>
+                                <dd>Players should be slightly easier to grab, and the head collision volume used for headbutting has been reduced by ~30%.</dd>
+                            
+                                <dt>Improved Stadium Collision</dt>
+                                <dd>Multiple problematic areas of the Stadium have had their collision adjusted for gameplay purposes. We will continue to monitor these changes.</dd>
+                            
+                                <dt>UI Improvements</dt>
+                                <dd>Some menus have been streamlined. In addition, the player HUD has received a minor visual overhaul.</dd>
+                            
+                                <dt>Graphical Improvements</dt>
+                                <dd>Multiple assets have been improved including Stadium textures, Armor Textures, and Particle Effects.</dd>
+                            
+                                <dt>Lighting Improvements</dt>
+                                <dd>Improved lighting fidelity while also reducing memory consumption.</dd>
+                            
+                                <dt>Audio Improvements</dt>
+                                <dd>Sound attenuation in the Stadium has been tweaked. This will result in slightly less echoey audio.</dd>
+                            </dl>
+                            <hr>
+                            <h4>Bug Fixes: </h4>
+                            <dl>
+                                <dt>"Air Grabbing" has been removed</dt>
+                                <dd>A bug allowed Players to grab the air as though they were grabbing a solid surface and gain an amount of speed greater than intended. This has been patched. As fun as it is, it's by far the most reported issue in game currently, and is widely considered greatly disruptive.</dd>
+                            
+                                <dt>"Remote Grabbing" has been removed</dt>
+                                <dd>Previously, Players were able to pull themselves away from a surface while maintaining a grab over distances that were unintended. This has been patched.</dd>
+                            
+                                <dt>Personal Disk no longer collides with the main Stadium Disk</dt>
+                                <dd>Previously, the Player's Personal Disk was capable of colliding with the main Stadium disk during certain conditions. This has been patched; sorry ping-pong enjoyers.</dd>
+                            
+                                <dt>Personal Menu summon position corrected while moving</dt>
+                                <dd>Previously, if a Player summoned their Personal Menu while moving, the menu would lag behind the Player's position. This has been patched.</dd>
+
+                                <dt>Euphoria (Echo_One) has been removed</dt>
+                                <dd>For crimes against high chancellor CadeXR, Euphoria has been banished.</dd>
+                            </dl>
+                            <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+            </div>
+            <!-- Patch Note-->
+            <div class="card text-white bg-dark my-5 py-4">
+                <div class="card-body d-flex justify-content-around">
+                    <div class="col-lg-8">
+                        <img src="assets/img/HexVR_Logo_1.png" alt="Image Description" height="80px" style="border: 3px solid white;"/>
+                        <h1 class="font-weight-light">Hex VR Patch Notes</h1>
                         <h3 class="font-weight-light">Beta Release | Major Update</h3>
                         <p><b>Version B0.5.372</b> - 3/29/2024</p>
                         <h5>Developer Notes: </h5>
@@ -181,7 +288,7 @@
                 <div class="col-md-4 mb-5 mx-auto">
                     <div class="container px-4 px-lg-5">
                         <p class="m-0 text-center text-white">&copy; 2023-2024 Hex VR | Golden Gear Studios, All rights reserved</p>
-                        <a class="m-0 text-center text-white" href="privacy">Privacy Policy</a>
+                        <a class="m-0 text-center text-white" href="privacy-policy">Privacy Policy</a>
                     </div>
                 </div>
             </div>
