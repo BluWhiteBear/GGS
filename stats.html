@@ -29,6 +29,7 @@
                         <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="compendium">Compendium</a></li> -->
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="stats">Stats</a></li>
                         <li class="nav-item"><a class="nav-link" href="support">Support Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="help">Help</a></li>
@@ -45,32 +46,84 @@
                     <h1 class="font-weight-light">Hex VR Player Stats</h1>
                 </div>
             </div>
-            <!-- Patch Note-->
+            <!-- Search PlayFab Players-->
             <div class="card text-white bg-dark my-5 py-4">
-                <div class="card-body d-flex justify-content-around">
-                    <div>
-                        <img class="img-fluid rounded mb-4 mb-lg-0 mx-auto d-block" src="assets/img/UnderContruction.png" alt="..." width="50%" />
-                        <h4 class="font-weight-light text-center">Please check back later for updates</h4>
+                <div class="card-body">
+                    <!-- Search-->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Search for a player..." aria-label="Search for a player..." aria-describedby="button-addon2" id="playerSearchBox">
+                                <!-- <button class="btn btn-primary" type="button" id="playerSearch">Search</button> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-4">
+                            <div class="input-group mb-3">
+                                <button class="btn btn-secondary" type="button" id="playerSort" disabled>Sort By</button>
+                                <select class="form-select" aria-label="Default select example" id="playerSortBox">
+                                    <option value="-1">Username ^</option>
+                                    <option value="0">Username v</option>
+                                    <option value="1">Games Played ^</option>
+                                    <option value="2">Games Played v</option>
+                                    <option value="3">Wins ^</option>
+                                    <option value="4">Wins v</option>
+                                    <option value="5">Losses ^</option>
+                                    <option value="6">Losses v</option>
+                                    <option value="7">Points ^</option>
+                                    <option value="8">Points v</option>
+                                    <option value="9">Saves ^</option>
+                                    <option value="10">Saves v</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
+                    <!-- Results-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="table-responsive" style="max-height: 1000px; overflow-y: auto;">
+                                <table class="table table-dark table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">Games Played</th>
+                                            <th scope="col">Wins</th>
+                                            <th scope="col">Losses</th>
+                                            <th scope="col">Points</th>
+                                            <th scope="col">Saves</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="dynPlayerList">
+
+                                    </tbody>
+                                </table>
+                                <div id="loadingThrobber" class="d-flex justify-content-center align-items-center">
+                                    <div class="spinner-border text-light" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
-            <!-- Social Media-->
-            <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><h5 class="text-white m-0">Stay Connected</h5></div>
-                <div class="card-body d-flex justify-content-around align-items-center">
-                    <a class="navbar-brand" href="https://discord.gg/invites/hex-vr" target="_blank">
-                        <img src="assets/img/icons8-discord-500.png" alt="" width="50%"/>
-                    </a>
-                    <a class="navbar-brand" href="https://twitter.com/PlayHexVR" target="_blank">
-                        <img src="assets/img/icons8-twitter-384.png" alt="" width="50%"/>
-                    </a>
-                    <a class="navbar-brand" href="https://www.youtube.com/@Hex-VR" target="_blank">
-                        <img src="assets/img/icons8-youtube-logo-500.png" alt="" width="50%"/>
-                    </a>
-                    <a class="navbar-brand" href="https://www.tiktok.com/@playhexvr" target="_blank">
-                        <img src="assets/img/icons8-tiktok-384.png" alt="" width="50%"/>
-                    </a>
-                </div>
+        </div>
+        <!-- Social Media-->
+        <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body"><h5 class="text-white m-0">Stay Connected</h5></div>
+            <div class="card-body d-flex justify-content-around align-items-center">
+                <a class="navbar-brand" href="https://discord.gg/invites/hex-vr" target="_blank">
+                    <img src="assets/img/icons8-discord-500.png" alt="" width="50%"/>
+                </a>
+                <a class="navbar-brand" href="https://twitter.com/PlayHexVR" target="_blank">
+                    <img src="assets/img/icons8-twitter-384.png" alt="" width="50%"/>
+                </a>
+                <a class="navbar-brand" href="https://www.youtube.com/@Hex-VR" target="_blank">
+                    <img src="assets/img/icons8-youtube-logo-500.png" alt="" width="50%"/>
+                </a>
+                <a class="navbar-brand" href="https://www.tiktok.com/@playhexvr" target="_blank">
+                    <img src="assets/img/icons8-tiktok-384.png" alt="" width="50%"/>
+                </a>
             </div>
         </div>
         <!-- Footer-->
@@ -100,8 +153,11 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <!-- Stats-->
+        <script src="js/stats.js"></script>
     </body>
 </html>
