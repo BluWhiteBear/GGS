@@ -38,6 +38,7 @@
                 </div>
             </div>
         </nav>
+
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
@@ -46,186 +47,285 @@
                     <h1 class="font-weight-light">Development Blog</h1>
                 </div>
             </div>
+
             <!-- Patch Note [TEMPLATE]-->
-            <!-- <div class="card text-white bg-dark my-5 py-4">
-                <div class="card-body d-flex justify-content-around">
-                    <div class="col-lg-8">
-                        <img src="assets/img/HexVR_Logo_1.png" alt="Image Description" height="80px" style="border: 3px solid white;"/>
-                        <h1 class="font-weight-light">Hex VR Patch Notes</h1>
-                        <h3 class="font-weight-light">[Update Title] | [Minor Update/Major Update]</h3>
-                        <p><b>Version [XX.X.XXX]</b> - [X/XX/XXXX]</p>
-                        <h4>Developer Notes: </h4>
-                        <p>[This would contain a developer's general thoughts on the update. It could be their hopes for what the community's response will be, etc..] -[Dev Signature]</p>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#template" aria-expanded="false" aria-controls="template">
-                            Show More
-                        </button>
-                        <div class="collapse" id="template">
-                            <hr>
-                            <h5>New Features: </h5>
-                            <dl>
-                                <dt>[New Feature Name]</dt>
-                                <dd>[New Feature Description, Details, Explanation]</dd>
-                            </dl>
-                            <hr>
-                            <h4>Improvements: </h4>
-                            <dl>
-                                <dt>[Improvement Name]</dt>
-                                <dd>[Improvement Description, Details, Explanation]</dd>
-                            </dl>
-                            <hr>
-                            <h4>Bug Fixes: </h4>
-                            <dl>
-                                <dt>[Bug Fix Name]</dt>
-                                <dd>[Bug Fix Description, Details, Explanation]</dd>
-                            </dl>
-                            <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4"></div>
-                </div>
-            </div> -->
-            <!-- Patch Note-->
-            <div class="card text-white bg-dark my-5 py-4">
-                <div class="card-body d-flex justify-content-around">
-                    <div class="col-lg-8">
-                        <img src="assets/img/HexVR_Logo_1.png" alt="Image Description" height="80px" style="border: 3px solid white;"/>
-                        <h1 class="font-weight-light">Hex VR Patch Notes</h1>
-                        <h3 class="font-weight-light">Communication & Clarity | Minor Update</h3>
-                        <p><b>Version B0.6.488</b> - 6/23/2024</p>
-                        <h4>Developer Notes: </h4>
-                        <p>Don't let the "Minor Update" tag in the title fool you, we've been hard at work improving the game in ways that matter a ton. This update includes bug fixes, quality of life improvements, and development tools that should make future development all that much smoother. -Blü</p>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_2" aria-expanded="false" aria-controls="patchnotes_2">
-                            Show More
-                        </button>
-                        <div class="collapse" id="patchnotes_2">
-                            <hr>
-                            <h5>New Features: </h5>
-                            <dl>
-                                <!-- <dt>PCVR is back!</dt> -->
-                                <!-- <dd>Hex VR is now once again available on PCVR via Meta/Oculus headsets. PCVR launched with Beta, but was temporarily pulled due to some security issues in that particular build. These issues have been addressed</dd> -->
-                                <!-- <dt>Tutorial 1.0</dt>
-                                <dd>The Main Menu now features a very simple text and image based tutorial explaining basic inputs and interactions</dd> -->
-                                <dt>Speed Tunnels</dt>
-                                <dd>The player-only tunnels in mid now accelerate the player at high speeds when entering the tunnel</dd>
-                                <dt>Score Reset Button</dt>
-                                <dd>The Stadium Spawn Room Pedestals now feature a Score Reset button. This will set the room's score back to 0:0</dd>
-                                <dt>Self Mute Toggle</dt>
-                                <dd>The Personal Menu, now named the "Runic Slate", now features an audio setting for muting your own microphone</dd>
-                                <dt>Mute Other Toggle</dt>
-                                <dd>The Runic Slate's player list now has the ability to mute specific players</dd>
-                                <dt>Mic Activity Indicator</dt>
-                                <dd>When speaking, an icon will appear above your head to indicate that your microphone is active</dd>
-                                <dt>HUD Settings</dt>
-                                <dd>The Runic Slate's Graphics settings tab now features HUD customization options, allowing you to cycle through 3 different HUD options: Full, Minimal, and Off</dd>
-                            </dl>
-                            <hr>
-                            <h4>Improvements: </h4>
-                            <dl>
-                                <dt>Head Collider Improvements</dt>
-                                <dd>Due to player feedback, the collider size of the player's head has been reduced by roughly 30%</dd>
-                                <dt>Spectator Improvements</dt>
-                                <dd>Spectators can no longer interact with the disk, and have had their visuals enhanced</dd>
-                                <dt>Disk Handling Improvements</dt>
-                                <dd>We've tweaked how the disk reacts to your movements based on player feedback. The wrist now has slightly less influence over the end throw direction, and throwing as a whole has been slowed down slightly. We'll be monitoring these changes closely</dd>
-                                <dt>Disk Behavior Improvements</dt>
-                                <dd>The disk should now retain less speed when bouncing, making it far more predictable. Speed retained reduced from 90% to 50%</dd>
-                                <dt>Stadium Collision Improvements</dt>
-                                <dd>Particularly troublesome areas of the Stadium have had their collision tweaked and smoothed out. Examples include the spawn tunnels and the side walls</dd>
-                                <dt>Runic Slate Improvements</dt>
-                                <dd>The Runic Slate is now partially visible to other players. This should help better communicate to others when you're occupied in a menu</dd>
-                                <dt>Networking Improvements</dt>
-                                <dd>Player position smoothing has been tweaked</dd>
-                                <dt>Graphical Improvements</dt>
-                                <dd>Multiple textures and materials have been improved, moving them closer to their final designs</dd>
-                                <dt>Audio Improvements</dt>
-                                <dd>Sound attenuation </dd>
-                                <dt>Performance Improvements</dt>
-                                <dd>Framerates across the board should see marginal improvements</dd>
-                            </dl>
-                            <hr>
-                            <h4>Bug Fixes: </h4>
-                            <dl>
-                                <dt>Remote Grab</dt>
-                                <dd>The ability to extend your reach by dragging with 2 hands has been removed</dd>
-                                <dt>Ghost Grab</dt>
-                                <dd>The exploit allowing players to grab the air has been patched out</dd>
-                                <dt>Runic Slate Summon Animation Fixed</dt>
-                                <dd>The animation that plays when summoning the Runic Slate previously positioned the slate incorrectly if spawned while moving. This has been fixed</dd>
-                            </dl>
-                            <div style="position: relative; overflow: hidden; padding-top: 56.25%; margin-bottom: 20px;">
-                                <!-- Video Player -->
-                                <!-- <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" class="rounded" src="https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=1&mute=1&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-                                <img src="assets/img/Screenshot_8.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+            <div class="card text-white bg-dark h-100" hidden>
+                <div class="card-body p-0">
+                    <!-- Header Band -->
+                    <div style="background-color: #1a1a1a; padding: 15px 10px; position: relative; border-radius: 10px 10px 0 0;">
+                        <div class="row no-gutters">
+                            <div class="col-1 d-flex align-items-center" style="position: relative;">
+                                <img src="assets/img/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
                             </div>
-                            <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                            <div class="col-11 d-flex flex-column justify-content-center">
+                                <h3 class="font-weight-light" style="margin-bottom: 10px;">Hex VR Patch Notes | [Update Size] Update</h3>
+                                <p style="margin-bottom: 15px;"><b>Version YX.XX.XX</b> - X/XX/XXXX</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4"></div>
+
+                    <!-- Content Band -->
+                    <div style="padding: 20px;">
+                        <div class="col-lg-8">
+                            <h3 class="font-weight-light" style="margin-bottom: 10px;">[Update Title/Tagline]</h3>
+
+                            <h4 style="font-weight: 600;">Developer Notes:</h4>
+                            <p style="margin-bottom: 15px;">[Body of text from one of the developers talking about the changes] - [Name of Dev Quoting]</p>
+                            
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_0" aria-expanded="false" aria-controls="patchnotes_0">
+                                Show More
+                            </button>
+
+                            <div class="collapse" id="patchnotes_0" style="margin-top: 20px;">
+                                <hr>
+                                <h5 style="font-weight: 600;">New Features:</h5>
+                                <!-- Features list -->
+                                <dl>
+                                    <dt>[Feature Name]</dt>
+                                    <dd>[Feature Explanation and/or Details]</dd>
+                                    <dt>[Feature Name]</dt>
+                                    <dd>[Feature Explanation and/or Details]</dd>
+                                    <dt>[Feature Name]</dt>
+                                    <dd>[Feature Explanation and/or Details]</dd>
+                                </dl>
+                                <hr>
+
+                                <h4 style="font-weight: 600;">Improvements:</h4>
+                                <!-- Improvements list -->
+                                <dl>
+                                    <dt>[Improvement Name]</dt>
+                                    <dd>[Improvement Explanation and/or Details]</dd>
+                                    <dt>[Improvement Name]</dt>
+                                    <dd>[Improvement Explanation and/or Details]</dd>
+                                    <dt>[Improvement Name]</dt>
+                                    <dd>[Improvement Explanation and/or Details]</dd>
+                                </dl>
+                                <hr>
+
+                                <h4 style="font-weight: 600;">Bug Fixes:</h4>
+                                <!-- Bug fixes list -->
+                                <dl>
+                                    <dt>[Bug Fix Name]</dt>
+                                    <dd>[Bug Fix Explanation and/or Details]</dd>
+                                    <dt>[Bug Fix Name]</dt>
+                                    <dd>[Bug Fix Explanation and/or Details]</dd>
+                                    <dt>[Bug Fix Name]</dt>
+                                    <dd>[Bug Fix Explanation and/or Details]</dd>
+                                </dl>
+
+                                <div style="position: relative; overflow: hidden; padding-top: 56.25%; margin-bottom: 20px;">
+                                    <!-- Video Player -->
+                                    <!-- <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" class="rounded"
+                                        src="https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=0&mute=1&loop=1"
+                                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                    </iframe> -->
+                                    <img src="assets/img/banner_1.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+                                </div>
+
+                                <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Patch Note-->
-            <div class="card text-white bg-dark my-5 py-4">
-                <div class="card-body d-flex justify-content-around">
-                    <div class="col-lg-8">
-                        <img src="assets/img/HexVR_Logo_1.png" alt="Image Description" height="80px" style="border: 3px solid white;"/>
-                        <h1 class="font-weight-light">Hex VR Patch Notes</h1>
-                        <h3 class="font-weight-light">Beta Release | Major Update</h3>
-                        <p><b>Version B0.5.372</b> - 3/29/2024</p>
-                        <h5>Developer Notes: </h5>
-                        <p>Hex VR is Officially in Open Beta! We are excited to introduce the first of many Beta updates to come for Hex VR. We are excited to see the community grow and evolve as we continue to develop the game. - Blü</p>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_1" aria-expanded="false" aria-controls="patchnotes_1">
-                            Show More
-                        </button>
-                        <div class="collapse" id="patchnotes_1">
-                            <hr>
-                            <h5>New Features: </h5>
-                            <dl>
-                                <dt>In Game Server Browser</dt>
-                                <dt>Display Name System</dt>
-                                <dt>Full Body Avatar IK</dt>
-                                <dt>Team System</dt>
-                                <dt>Regrabbing (Experimental*)</dt>
-                                <dt>Pitch and Roll (Experimental*)</dt>
-                                <dt>Spectator Mode (Experimental*)</dt>
-                                <dt>App Lab</dt>
-                            </dl>
-                            <p>Experimental features are highly buggy and unfinished, but contribute to gameplay enough to justify releasing in an early state*</p>
-                            <hr>
-                            <h5>Improvements: </h5>
-                            <dl>
-                                <dt>Menu Improvements</dt>
-                                <dt>Improved Multiplayer Stability</dt>
-                                <dt>Improved Movement</dt>
-                                <dt>Improved Disk Handling</dt>
-                                <dt>Improved Performance Optimizations</dt>
-                                <dt>Improved Settings Menu</dt>
-                                <dt>Improved Arena Geometry</dt>
-                                <dt>Audio Improvements</dt>
-                                <dt>Voice Chat Improvements</dt>
-                                <dt>Graphical Improvements</dt>
-                                <dt>Increased Total Player Cap</dt>
-                                <dt>Numerous Bug Fixes</dt>
-                            </dl>
-                            <hr>
-                            <h5>Bug Fixes: </h5>
-                            <dl>
-                                <dt>Disk no longer "slingshots" when being pulled through geometry</dt>
-                                <dt>Fixed CV1 throwing</dt>
-                                <dt>Fixed Settings Menu "up" buttons not working</dt>
-                                <dt>Eye animation will no longer stutter and skip</dt>
-                                <dt>Player HUD no longer clips through geometry</dt>
-                            </dl>
-                            <div style="position: relative; overflow: hidden; padding-top: 56.25%; margin-bottom: 20px;">
-                                <!-- Video Player -->
-                                <iframe style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" class="rounded" src="https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=0&mute=1&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                <!-- <img src="assets/img/Screenshot_7.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/> -->
+            <!--Spacer-->
+            <div class="my-5" hidden></div>
+            
+            <!-- NEW Patch Note-->
+            <div class="card text-white bg-dark h-100">
+                <div class="card-body p-0">
+                    <!-- Header Band -->
+                    <div style="background-color: #1a1a1a; padding: 15px 10px; position: relative; border-radius: 10px 10px 0 0;">
+                        <div class="row no-gutters">
+                            <div class="col-1 d-flex align-items-center" style="position: relative;">
+                                <img src="assets/img/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
                             </div>
-                            <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                            <div class="col-11 d-flex flex-column justify-content-center">
+                                <h3 class="font-weight-light" style="margin-bottom: 10px;">Hex VR Patch Notes | Minor Update</h3>
+                                <p style="margin-bottom: 15px;"><b>Version B0.6.488</b> - 6/23/2024</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4"></div>
+
+                    <!-- Content Band -->
+                    <div style="padding: 20px;">
+                        <div class="col-lg-8">
+                            <h3 class="font-weight-light" style="margin-bottom: 10px;">Communication & Clarity</h3>
+
+                            <h4 style="font-weight: 600;">Developer Notes:</h4>
+                            <p style="margin-bottom: 15px;">Don't let the "Minor Update" tag in the title fool you, we've been hard at work improving the game in ways that matter a ton. This update includes bug fixes, quality of life improvements, and development tools that should make future development all that much smoother. -Blü</p>
+                            
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_2" aria-expanded="false" aria-controls="patchnotes_2">
+                                Show More
+                            </button>
+
+                            <div class="collapse" id="patchnotes_2" style="margin-top: 20px;">
+                                <hr>
+                                <h5 style="font-weight: 600;">New Features:</h5>
+                                <!-- Features list -->
+                                <dl>
+                                    <dt>Tutorial 1.0</dt>
+                                    <dd>The Main Menu now features a very simple text and image based tutorial explaining basic inputs and interactions</dd>
+                                    <dt>Score Reset Button</dt>
+                                    <dd>The Stadium Spawn Room Pedestals now feature a Score Reset button. This will set the room's score back to 0:0</dd>
+                                    <dt>Self Mute Toggle</dt>
+                                    <dd>The Personal Menu, now named the "Runic Slate", now features an audio setting for muting your own microphone</dd>
+                                    <dt>Mute Other Toggle</dt>
+                                    <dd>The Runic Slate's player list now has the ability to mute specific players</dd>
+                                    <dt>Mic Activity Indicator</dt>
+                                    <dd>When speaking, an icon will appear above your head to indicate that your microphone is active</dd>
+                                    <dt>HUD Settings</dt>
+                                    <dd>The Runic Slate's Graphics settings tab now features HUD customization options, allowing you to cycle through 3 different HUD options: Full, Minimal, and Off</dd>
+                                </dl>
+                                <hr>
+
+                                <h4 style="font-weight: 600;">Improvements:</h4>
+                                <!-- Improvements list -->
+                                <dl>
+                                    <dt>Head Collider Improvements</dt>
+                                    <dd>Due to player feedback, the collider size of the player's head has been reduced by roughly 30%</dd>
+                                    <dt>Spectator Improvements</dt>
+                                    <dd>Spectators can no longer interact with the disk, and have had their visuals enhanced</dd>
+                                    <dt>Disk Handling Improvements</dt>
+                                    <dd>We've tweaked how the disk reacts to your movements based on player feedback. The wrist now has slightly less influence over the end throw direction, and throwing as a whole has been slowed down slightly. We'll be monitoring these changes closely</dd>
+                                    <dt>Disk Behavior Improvements</dt>
+                                    <dd>The disk should now retain less speed when bouncing, making it far more predictable. Speed retained reduced from 90% to 50%</dd>
+                                    <dt>Stadium Collision Improvements</dt>
+                                    <dd>Particularly troublesome areas of the Stadium have had their collision tweaked and smoothed out. Examples include the spawn tunnels and the side walls</dd>
+                                    <dt>Runic Slate Improvements</dt>
+                                    <dd>The Runic Slate is now partially visible to other players. This should help better communicate to others when you're occupied in a menu</dd>
+                                    <dt>Networking Improvements</dt>
+                                    <dd>Player position smoothing has been tweaked</dd>
+                                    <dt>Graphical Improvements</dt>
+                                    <dd>Multiple textures and materials have been improved, moving them closer to their final designs</dd>
+                                    <dt>Audio Improvements</dt>
+                                    <dd>Sound attenuation </dd>
+                                    <dt>Performance Improvements</dt>
+                                    <dd>Framerates across the board should see marginal improvements</dd>
+                                </dl>
+                                <hr>
+
+                                <h4 style="font-weight: 600;">Bug Fixes:</h4>
+                                <!-- Bug fixes list -->
+                                <dl>
+                                    <dt>Remote Grab</dt>
+                                    <dd>The ability to extend your reach by dragging with 2 hands has been removed</dd>
+                                    <dt>Ghost Grab</dt>
+                                    <dd>The exploit allowing players to grab the air has been patched out</dd>
+                                    <dt>Runic Slate Summon Animation Fixed</dt>
+                                    <dd>The animation that plays when summoning the Runic Slate previously positioned the slate incorrectly if spawned while moving. This has been fixed</dd>
+                                </dl>
+
+                                <div style="position: relative; overflow: hidden; padding-top: 56.25%; margin-bottom: 20px;">
+                                    <!-- Video Player -->
+                                    <!-- <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" class="rounded"
+                                        src="https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=0&mute=1&loop=1"
+                                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                    </iframe> -->
+                                    <img src="assets/img/Screenshot_8.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+                                </div>
+
+                                <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!--Spacer-->
+            <div class="my-5"></div>
+
+            <!-- NEW Patch Note-->
+            <div class="card text-white bg-dark h-100">
+                <div class="card-body p-0">
+                    <!-- Header Band -->
+                    <div style="background-color: #1a1a1a; padding: 15px 10px; position: relative; border-radius: 10px 10px 0 0;">
+                        <div class="row no-gutters">
+                            <div class="col-1 d-flex align-items-center" style="position: relative;">
+                                <img src="assets/img/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
+                            </div>
+                            <div class="col-11 d-flex flex-column justify-content-center">
+                                <h3 class="font-weight-light" style="margin-bottom: 10px;">Hex VR Patch Notes | Major Update</h3>
+                                <p style="margin-bottom: 15px;"><b>Version B0.5.372</b> - 3/29/2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Band -->
+                    <div style="padding: 20px;">
+                        <div class="col-lg-8">
+                            <h3 class="font-weight-light" style="margin-bottom: 10px;">Beta Release</h3>
+
+                            <h4 style="font-weight: 600;">Developer Notes:</h4>
+                            <p style="margin-bottom: 15px;">Hex VR is Officially in Open Beta! We are excited to introduce the first of many Beta updates to come for Hex VR. We are excited to see the community grow and evolve as we continue to develop the game. - Blü</p>
+                            
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_1" aria-expanded="false" aria-controls="patchnotes_1">
+                                Show More
+                            </button>
+
+                            <div class="collapse" id="patchnotes_1" style="margin-top: 20px;">
+                                <hr>
+                                <h5 style="font-weight: 600;">New Features:</h5>
+                                <!-- Features list -->
+                                <dl>
+                                    <dt>In Game Server Browser</dt>
+                                    <dt>Display Name System</dt>
+                                    <dt>Full Body Avatar IK</dt>
+                                    <dt>Team System</dt>
+                                    <dt>Regrabbing (Experimental*)</dt>
+                                    <dt>Pitch and Roll (Experimental*)</dt>
+                                    <dt>Spectator Mode (Experimental*)</dt>
+                                    <dt>App Lab</dt>
+                                </dl>
+                                <p>Experimental features are highly buggy and unfinished, but contribute to gameplay enough to justify releasing in an early state*</p>
+                                <hr>
+
+                                <h4 style="font-weight: 600;">Improvements:</h4>
+                                <!-- Improvements list -->
+                                <dl>
+                                    <dt>Menu Improvements</dt>
+                                    <dt>Improved Multiplayer Stability</dt>
+                                    <dt>Improved Movement</dt>
+                                    <dt>Improved Disk Handling</dt>
+                                    <dt>Improved Performance Optimizations</dt>
+                                    <dt>Improved Settings Menu</dt>
+                                    <dt>Improved Arena Geometry</dt>
+                                    <dt>Audio Improvements</dt>
+                                    <dt>Voice Chat Improvements</dt>
+                                    <dt>Graphical Improvements</dt>
+                                    <dt>Increased Total Player Cap</dt>
+                                    <dt>Numerous Bug Fixes</dt>
+                                </dl>
+                                <hr>
+
+                                <h4 style="font-weight: 600;">Bug Fixes:</h4>
+                                <!-- Bug fixes list -->
+                                <dl>
+                                    <dt>Disk no longer "slingshots" when being pulled through geometry</dt>
+                                    <dt>Fixed CV1 throwing</dt>
+                                    <dt>Fixed Settings Menu "up" buttons not working</dt>
+                                    <dt>Eye animation will no longer stutter and skip</dt>
+                                    <dt>Player HUD no longer clips through geometry</dt>
+                                </dl>
+
+                                <div style="position: relative; overflow: hidden; padding-top: 56.25%; margin-bottom: 20px;">
+                                    <!-- Video Player -->
+                                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" class="rounded"
+                                        src="https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=0&mute=1&loop=1"
+                                        frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                    </iframe>
+                                    <!-- <img src="assets/img/Screenshot_7.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/> -->
+                                </div>
+
+                                <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Spacer-->
+            <div class="my-5"></div>
+
+
             <!-- Social Media-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
                 <div class="card-body"><h5 class="text-white m-0">Stay Connected</h5></div>
@@ -271,6 +371,9 @@
                 </div>
             </div>
         </footer>
+
+
+
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
