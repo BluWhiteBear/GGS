@@ -5,54 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-
-        <!-- Tags for Browser Preview-->
-        <meta name="title" content="Hex VR Patch Notes" />
-        <meta name="description" content="Update Patch Notes for Golden Gear Studio's Hex VR" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="title" content="Golden Gear Studios - Blog" />
+        <meta property="og:title" content="Golden Gear Studios - Blog" />
+        <meta name="description" content="Volunteer Game Development Studio making VR stuff" />
+        <meta property="og:description" content="Volunteer Game Development Studio making VR stuff" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://goldengearstudios.com/blog" />
-        <meta property="og:title" content="Hex VR Patch Notes" />
-        <meta property="og:description" content="Update Patch Notes for Golden Gear Studio's Hex VR" />
         <meta property="og:image" content="https://goldengearstudios.com/assets/img/banner_1.png" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://goldengearstudios.com/blog" />
-        <meta property="twitter:title" content="Hex VR Patch Notes" />
-        <meta property="twitter:description" content="Update Patch Notes for Golden Gear Studio's Hex VR" />
-        <meta property="twitter:image" content="https://goldengearstudios.com/assets/img/banner_1.png" />
 
         <title>GG Studios - Blog</title>
-        <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-5">
-                <a class="navbar-brand mx-auto d-block pr-0" href="./">
-                    <img src="assets/img/ggsLogo_1.png" alt="" height="50"/>
-                </a>
-                <button class="navbar-toggler border-0" type="button" style="width: 50px; height: 50px;" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
-                        <path d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5"/>
-                    </svg>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="./">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="blog">Blog</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="compendium">Compendium</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="stats">Stats</a></li>
-                        <li class="nav-item"><a class="nav-link" href="support">Support Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="help">Help</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Play Now</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <div id="navbar-placeholder" class="fixed-top"></div>
+        <div style="padding-top: 70px;"></div>
 
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
@@ -70,7 +39,7 @@
                     <div style="background-color: #1a1a1a; padding: 15px 10px; position: relative; border-radius: 10px 10px 0 0;">
                         <div class="row no-gutters">
                             <div class="col-1 d-flex align-items-center" style="position: relative;">
-                                <img src="assets/img/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
+                                <img src="assets/img/Logos/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
                             </div>
                             <div class="col-11 d-flex flex-column justify-content-center">
                                 <h3 class="font-weight-light" style="margin-bottom: 10px;">Hex VR Patch Notes | [Update Size] Update</h3>
@@ -87,7 +56,7 @@
                             <h4 style="font-weight: 600;">Developer Notes:</h4>
                             <p style="margin-bottom: 15px;">[Body of text from one of the developers talking about the changes] - [Name of Dev Quoting]</p>
                             
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_0" aria-expanded="false" aria-controls="patchnotes_0">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#patchnotes_0" aria-expanded="false" aria-controls="patchnotes_0">
                                 Show More
                             </button>
 
@@ -134,7 +103,117 @@
                                         src="https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=0&mute=1&loop=1"
                                         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                                     </iframe> -->
-                                    <img src="assets/img/banner_1.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+                                    <img src="assets/img/Graphics/banner_1.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+                                </div>
+
+                                <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Spacer-->
+            <div class="my-5" hidden></div>
+
+            <!-- NEW Patch Note -->
+            <div class="card text-white bg-dark h-100" hidden>
+                <div class="card-body p-0">
+                    <!-- Header Band -->
+                    <div style="background-color: #1a1a1a; padding: 15px 10px; position: relative; border-radius: 10px 10px 0 0;">
+                        <div class="row no-gutters">
+                            <div class="col-1 d-flex align-items-center" style="position: relative;">
+                                <img src="assets/img/Logos/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
+                            </div>
+                            <div class="col-11 d-flex flex-column justify-content-center">
+                                <h3 class="font-weight-light" style="margin-bottom: 10px;">Hex VR Patch Notes | Major Update</h3>
+                                <p style="margin-bottom: 15px;"><b>Version B0.7.XXX</b> - 12/24/2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Band -->
+                    <div style="padding: 20px;">
+                        <div class="col-lg-8">
+                            <h3 class="font-weight-light" style="margin-bottom: 10px;">A Very Merry Hex VR Update</h3>
+
+                            <h4 style="font-weight: 600;">Developer Notes:</h4>
+                            <p style="margin-bottom: 15px;">Happy Holidays Hex Knights! This is Hex VR's first major update since the start of Beta and we're happy to share what we've been working on. Between new features, improvements to existing features, and some extra goodies, this Holiday update will be something to remember! - Blü</p>
+                            
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#patchnotes_3" aria-expanded="false" aria-controls="patchnotes_3">
+                                Show More
+                            </button>
+
+                            <div class="collapse" id="patchnotes_3" style="margin-top: 20px;">
+                                <hr>
+                                <h5 style="font-weight: 600;">Seasonal Changes:</h5>
+                                <!-- Change List-->
+                                <dl>
+                                    <dt>Winter's Here</dt>
+                                    <dd>The Main Menu and Stadium have been reflavored to incorporate a Winter/Holiday theme.</dd>
+                                    <dt>Seasonal Music</dt>
+                                    <dd>Enjoy the sounds of the season with the new Holiday Remix of the Main Menu music. </dd>
+                                    <dt>Festive Attire</dt>
+                                    <dd>The Hex Knights have been temporarily decked out in Festive hats.</dd>
+                                </dl>
+
+                                <h5>Holiday themed changes will be removed sometime in late January!</h5>
+
+                                <hr>
+                                
+                                <h5 style="font-weight: 600;">New Features:</h5>
+                                <!-- Features list -->
+                                <dl>
+                                    <dt>Gamemode 1.0 (Experimental)</dt>
+                                    <dd>This marks the introduction of our first iteration of internal game rules that we'll be sharing with you all. The room owner can start and end the match from the Stadium Pedestal in either spawn room at any time. Games are played first to 20 points.</dd>
+                                    <dt>Stadium Reset</dt>
+                                    <dd>Room owners now have access to a new option in the Stadium Pedestal that allows them to reset the state of the arena, i.e. reset the disk position and team scores.</dd>
+                                    <dt>Weave Tethers (Experimental)</dt>
+                                    <dd>After the warm reception to the speed boosting "Swift Gates" in Mid, we're happy to introduce our next experimental movement mechanic, the Weave Tethers. These are hand mounted cables that can be used to rapidly pivot around a point, maintaining your velocity around sharp turns. As this is highly experimental, we'll be closely watching for community feedback to determine the mechanic's future. So please, be vocal about your thoughts in the Community Discord Server! </dd>
+                                </dl>
+                                <hr>
+
+                                <h4 style="font-weight: 600;">Improvements:</h4>
+                                <!-- Improvements list -->
+                                <dl>
+                                    <dt>Personal Pedestal Rewrite</dt>
+                                    <dd>The Arcane Slate (Personal Menu) has been retooled into the Personal Pedestal. It's now accessible via the spawn rooms.</dd>
+                                    <dt>Personal Pedestal Improvements</dt>
+                                    <dd>All new layout and features included in the Personal Pedestal, including a small personal mirror.</dd>
+                                    <dt>Improved Stadium Audio Reverb Zones</dt>
+                                    <dd>Adjusted reverb zones for clearer audio.</dd>
+                                    <dt>Increased Voice Volume Multiplier</dt>
+                                    <dd>Even at maximum volume, player voices tended to be quite quiet. So we've increased the player voice attenuation range and increased the player voice chat volume multiplier from 1x to 1.5x.</dd>
+                                    <dt>Improved Visuals</dt>
+                                    <dd>Adjusted lighting and textures across multiple areas of the Stadium and Main Menu.</dd>
+                                    <dt>Touch Buttons</dt>
+                                    <dd>Pedestal buttons now physically actuate instead of activating instantly on touch. This should reduce accidental button presses.</dd>
+                                </dl>
+                                <hr>
+
+                                <h4 style="font-weight: 600;">Bug Fixes:</h4>
+                                <!-- Bug fixes list -->
+                                <dl>
+                                    <dt>Room Crash</dt>
+                                    <dd>Fixed an issue that caused rooms to crash and burn at 6 players. Will continue to monitor.</dd>
+                                    <dt>Disk's Meteor Shot "Fireball" Effect</dt>
+                                    <dd>Fixed an issue where a Disk's Meteor Shot "Fireball" particle effect wasn't being networked properly.</dd>
+                                    <dt>Disk Team Color</dt>
+                                    <dd>Fixed an issue where the Disk's Color, which indicates team ownership, wasn't being networked properly.</dd>
+                                    <dt>Reconnect Score Desync</dt>
+                                    <dd>Fixed an issue where leaving and rejoining a room would cause the room's score to become desynced.</dd>
+                                    <dt>Tutorial Button Colliders</dt>
+                                    <dd>Fixed Tutorial button colliders not being aligned to the button visuals properly.</dd>
+                                    <dt>Headless Reconnect</dt>
+                                    <dd>Fixed an issue where when reconnecting, other player's head positions weren't synced properly</dd>
+                                </dl>
+
+                                <div style="position: relative; overflow: hidden; padding-top: 56.25%; margin-bottom: 20px;">
+                                    <!-- Video Player -->
+                                    <!-- <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" class="rounded"
+                                        src="https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=0&mute=1&loop=1"
+                                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                    </iframe> -->
+                                    <img src="assets/img/Graphics/banner_1.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
                                 </div>
 
                                 <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
@@ -153,7 +232,7 @@
                     <div style="background-color: #1a1a1a; padding: 15px 10px; position: relative; border-radius: 10px 10px 0 0;">
                         <div class="row no-gutters">
                             <div class="col-1 d-flex align-items-center" style="position: relative;">
-                                <img src="assets/img/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
+                                <img src="assets/img/Logos/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
                             </div>
                             <div class="col-11 d-flex flex-column justify-content-center">
                                 <h3 class="font-weight-light" style="margin-bottom: 10px;">Hex VR Patch Notes | Minor Update</h3>
@@ -170,7 +249,7 @@
                             <h4 style="font-weight: 600;">Developer Notes:</h4>
                             <p style="margin-bottom: 15px;">Don't let the "Minor Update" tag in the title fool you, we've been hard at work improving the game in ways that matter a ton. This update includes bug fixes, quality of life improvements, and development tools that should make future development all that much smoother. -Blü</p>
                             
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_2" aria-expanded="false" aria-controls="patchnotes_2">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#patchnotes_2" aria-expanded="false" aria-controls="patchnotes_2">
                                 Show More
                             </button>
 
@@ -237,7 +316,7 @@
                                         src="https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=0&mute=1&loop=1"
                                         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                                     </iframe> -->
-                                    <img src="assets/img/Screenshot_8.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+                                    <img src="assets/img/Screenshots/Screenshot_8.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
                                 </div>
 
                                 <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
@@ -256,7 +335,7 @@
                     <div style="background-color: #1a1a1a; padding: 15px 10px; position: relative; border-radius: 10px 10px 0 0;">
                         <div class="row no-gutters">
                             <div class="col-1 d-flex align-items-center" style="position: relative;">
-                                <img src="assets/img/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
+                                <img src="assets/img/Logos/HexVR_Logo_1.png" alt="" class="img-fluid" style="border: 2px solid white; border-radius: 10px; object-fit: cover; max-height: 80px;"/>
                             </div>
                             <div class="col-11 d-flex flex-column justify-content-center">
                                 <h3 class="font-weight-light" style="margin-bottom: 10px;">Hex VR Patch Notes | Major Update</h3>
@@ -273,7 +352,7 @@
                             <h4 style="font-weight: 600;">Developer Notes:</h4>
                             <p style="margin-bottom: 15px;">Hex VR is Officially in Open Beta! We are excited to introduce the first of many Beta updates to come for Hex VR. We are excited to see the community grow and evolve as we continue to develop the game. - Blü</p>
                             
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#patchnotes_1" aria-expanded="false" aria-controls="patchnotes_1">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#patchnotes_1" aria-expanded="false" aria-controls="patchnotes_1">
                                 Show More
                             </button>
 
@@ -328,7 +407,7 @@
                                         src="https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=0&mute=1&loop=1"
                                         frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                                     </iframe>
-                                    <!-- <img src="assets/img/Screenshot_7.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/> -->
+                                    <!-- <img src="assets/img/Screenshots/Screenshot_7.png" alt="..." class="rounded" style="border: 3px solid white; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/> -->
                                 </div>
 
                                 <a class="btn btn-primary" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Download</a>
@@ -342,56 +421,15 @@
 
 
             <!-- Social Media-->
-            <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><h5 class="text-white m-0">Stay Connected</h5></div>
-                <div class="card-body d-flex justify-content-around align-items-center">
-                    <a class="navbar-brand" href="https://discord.gg/invites/hex-vr" target="_blank">
-                        <img src="assets/img/icons8-discord-500.png" alt="" width="50%"/>
-                    </a>
-                    <a class="navbar-brand" href="https://twitter.com/PlayHexVR" target="_blank">
-                        <img src="assets/img/icons8-twitter-384.png" alt="" width="50%"/>
-                    </a>
-                    <a class="navbar-brand" href="https://www.youtube.com/@Hex-VR" target="_blank">
-                        <img src="assets/img/icons8-youtube-logo-500.png" alt="" width="50%"/>
-                    </a>
-                    <a class="navbar-brand" href="https://www.tiktok.com/@playhexvr" target="_blank">
-                        <img src="assets/img/icons8-tiktok-384.png" alt="" width="50%"/>
-                    </a>
-                </div>
-            </div>
+            <div id="socials-placeholder"></div>
         </div>
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="row gx-4 gx-lg-5 text-center">
-                <div class="col-md-4 mb-5 mx-auto">
-                    <a class="navbar-brand" href="./">
-                        <img src="assets/img/ggsLogo_1.png" alt="" width="50%"/>
-                    </a>
-                </div>
-                <div class="col-md-4 mb-5 mx-auto">
-                    <a class="navbar-brand" href="https://www.photonengine.com" target="_blank">
-                        <img src="assets/img/photonLogo_1.png" alt="" width="50%"/>
-                    </a>
-                </div>
-                <div class="col-md-4 mb-5 mx-auto">
-                    <a class="navbar-brand" href="https://playfab.com" target="_blank">
-                        <img src="assets/img/playfabLogo_1.png" alt="" width="50%"/>
-                    </a>
-                </div>
-                <div class="col-md-4 mb-5 mx-auto">
-                    <div class="container px-4 px-lg-5">
-                        <p class="m-0 text-center text-white">&copy; 2023-2024 Hex VR | Golden Gear Studios, All rights reserved</p>
-                        <a class="m-0 text-center text-white" href="privacy-policy">Privacy Policy</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <div id="footer-placeholder"></div>
 
 
 
         <!-- Bootstrap core JS-->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
