@@ -17,6 +17,11 @@
         <title>GG Studios - FAQ</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link href="css/styles.css" rel="stylesheet" />
+
+        <link rel="preload" href="navbar.html" as="fetch" crossorigin>
+        <link rel="preload" href="css/styles.css" as="style">
+        <link rel="preload" href="js/scripts.js" as="script">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -26,12 +31,17 @@
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
-            <div class="card text-white bg-secondary my-4 py-1">
-                <div class="card-body d-flex justify-content-around">
-                    <h1 class="font-weight-light">Hex VR FAQ</h1>
+            <div class="card text-white my-4" style="background: linear-gradient(45deg, #1a1a1a, #2d2d2d); border-radius: 15px;">
+                <div class="card-body py-4">
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <h1 class="font-weight-light mb-2">Golden Gear Studios FAQ</h1>
+                            <p class="text-light mb-0" style="font-size: 1.1rem;">"Blü probably sent you here."</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+            <!-- FAQ Body-->
             <div class="card text-white bg-dark my-5 py-4 accordion" id="faqAccordion">
                 <div>
                     <div class="card-body" id="headingTwo">
@@ -124,9 +134,7 @@
         </div>
         <!-- Footer-->
         <div id="footer-placeholder"></div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" defer></script>
+        <script src="js/scripts.js" defer></script>
     </body>
 </html>
