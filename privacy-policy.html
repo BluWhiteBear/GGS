@@ -26,16 +26,18 @@
     <body>
         <!-- Responsive navbar-->
         <div id="navbar-placeholder" class="fixed-top"></div>
-        <div style="padding-top: 70px;"></div>
+        <div style="padding-top: 90px"></div>
 
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
-            <div class="card text-white bg-secondary my-4 py-1">
-                <div class="card-body d-flex justify-content-around">
-                    <h1 class="font-weight-light">Privacy Policy</h1>
-                </div>
-            </div>
+            <div id="header-placeholder"></div>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    loadHeader('header-placeholder', 'Privacy Policy', '');
+                });
+            </script>
+
             <!-- Policy Text-->
             <div class="card text-white bg-dark my-5 py-4">
                 <div class="card-body d-flex justify-content-around">

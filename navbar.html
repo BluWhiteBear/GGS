@@ -1,8 +1,10 @@
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css" as="style">
+    <script src="js/scripts.js" defer></script>
     <style>
         .navbar {
 		    transition: background-color 0.3s;
@@ -58,12 +60,38 @@
         .form-check-input:checked + .theme-icon {
             left: 10px;
         }
+
+        .dropdown-menu {
+            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+            border-radius: 12px !important;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 0.5rem;
+        }
+
+        .dropdown-item {
+            color: rgba(255,255,255,0.75) !important;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255,255,255,0.1) !important;
+            color: #fff !important;
+        }
+
+        .dropdown-divider {
+            border-color: rgba(255,255,255,0.1);
+            margin: 0.5rem 0;
+        }
     </style>
 </head>
 <div>
     <!-- Desktop Nav Bar - Only visible on large screens -->
     <div class="d-none d-lg-block container px-4 px-lg-5 my-2">
-        <nav class="navbar navbar-expand-lg navbar-dark rounded" style="background-color: rgba(33, 37, 41, 0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+        <nav class="navbar navbar-expand-lg navbar-dark rounded" style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: linear-gradient(180deg, #2a2a2a9c 0%, #1a1a1ae7 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-top: 1rem;">
             <div class="container px-5">
                 <a class="navbar-brand me-4" href="./">
                     <img src="assets/img/Logos/ggsLogo_1.png" alt="" class="d-inline-block" height="50" style="height: 50px;" />
@@ -82,6 +110,16 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="compendium.html">Compendium</a></li>
+                        <li class="nav-item dropdown dev-only d-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                                Dev
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="blogPostDesigner.html">Blog Post Designer</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" onclick="logoutDev()">Logout</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="support.html">Support Us</a></li>
@@ -137,6 +175,16 @@
                             <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
                             <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
                             <li class="nav-item"><a class="nav-link" href="compendium.html">Compendium</a></li>
+                            <li class="nav-item dropdown dev-only d-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                                    Dev
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="blogPostDesigner.html">Blog Post Designer</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#" onclick="logoutDev()">Logout</a></li>
+                                </ul>
+                            </li>
                             <li class="nav-item"><a class="nav-link" href="support.html">Support Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="help.html">Help</a></li>
                             <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" href="https://www.meta.com/en-gb/experiences/7202337956544173/" target="_blank">Play Now</a></li>
@@ -153,5 +201,28 @@
                 </div>
             </div>
         </nav>
+    </div>
+</div>
+
+<div class="modal fade" id="devAuthModal" data-bs-backdrop="false" tabindex="-1" aria-labelledby="devAuthModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="devAuthModalLabel">Developer Authentication</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="devAuthForm" onsubmit="authenticateDev(event)">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="password" id="devPassword" class="form-control" placeholder="Developer password" required>
+                        <div class="invalid-feedback">Invalid password</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

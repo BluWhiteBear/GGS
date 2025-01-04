@@ -26,21 +26,18 @@
     <body>
         <!-- Responsive navbar-->
         <div id="navbar-placeholder" class="fixed-top"></div>
-        <div style="padding-top: 70px;"></div>
+        <div style="padding-top: 90px"></div>
 
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
-            <div class="card text-white my-4" style="background: linear-gradient(45deg, #1a1a1a, #2d2d2d); border-radius: 15px;">
-                <div class="card-body py-4">
-                    <div class="row align-items-center">
-                        <div class="col-12 text-center">
-                            <h1 class="font-weight-light mb-2">Golden Gear Studios FAQ</h1>
-                            <p class="text-light mb-0" style="font-size: 1.1rem;">"Blü probably sent you here."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="header-placeholder"></div>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    loadHeader('header-placeholder', 'Golden Gear Studios FAQ', '"Blü probably sent you here."');
+                });
+            </script>
+
             <!-- FAQ Body-->
             <div class="card text-white bg-dark my-5 py-4 accordion" id="faqAccordion">
                 <div>

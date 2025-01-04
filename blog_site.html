@@ -17,64 +17,26 @@
         <title>GG Studios - Site Blog</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link href="css/styles.css" rel="stylesheet" />
+
+        <script src="js/blogPostGen.js"></script>
     </head>
     <body>
         <!-- Responsive navbar-->
         <div id="navbar-placeholder" class="fixed-top"></div>
-        <div style="padding-top: 70px;"></div>
+        <div style="padding-top: 90px"></div>
 
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
-            <div class="card text-white my-4" style="background: linear-gradient(45deg, #1a1a1a, #2d2d2d); border-radius: 15px;">
-                <div class="card-body py-4">
-                    <div class="row align-items-center">
-                        <div class="col-12 text-center">
-                            <h1 class="font-weight-light mb-2">GG Site Development Blog</h1>
-                            <p class="text-light mb-0" style="font-size: 1.1rem;">Website Patch Notes</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="header-placeholder"></div>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    loadHeader('header-placeholder', 'GG Site Development Blog', 'Website Patch Notes');
+                });
+            </script>
 
-            <!-- NEW Patch Note -->
-            <div class="card text-white bg-dark h-100">
-                <div class="card-body p-0">
-                    <!-- Header Band -->
-                    <div style="background-color: #1a1a1a; padding: 15px 10px; position: relative; border-radius: 10px 10px 0 0;">
-                        <div class="row no-gutters">
-                            <div class="col-2 col-sm-1 d-flex align-items-center pe-2" style="position: relative; min-width: 60px;">
-                                <img src="assets/img/Logos/GoldenGear_Logo.png" 
-                                    alt="" 
-                                    class="img-fluid" 
-                                    style="border: 2px solid white; 
-                                            border-radius: 10px; 
-                                            object-fit: cover;
-                                            min-width: 50px;
-                                            min-height: 50px;
-                                            width: 100%;
-                                            max-height: 80px;"/>
-                            </div>
-                            <div class="col-10 col-sm-11 d-flex flex-column justify-content-center">
-                                <h3 class="font-weight-light" style="margin-bottom: 10px;">GG Site Patch Notes | Major Update</h3>
-                                <p style="margin-bottom: 15px;">1/1/2025</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Band -->
-                    <div style="padding: 20px;">
-                        <div class="col-lg-8">
-                            <h3 class="font-weight-light" style="margin-bottom: 10px;">Revision 3</h3>
-
-                            <h4 style="font-weight: 600;">Developer Notes:</h4>
-                            <p style="margin-bottom: 15px;">Happy Holidays everybody! This is the site's 3rd Major overhaul. It brings a fresh new layout to multiple pages, introduces the all new Compendium, and a lot of back end improvements.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Spacer-->
-            <div class="my-5"></div>
+            <!-- Blog Posts Container-->
+            <div id="blog-posts-container" data-blog-type="site"></div>
         
             <!-- Social Media-->
             <div id="socials-placeholder"></div>
