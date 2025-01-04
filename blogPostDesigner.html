@@ -259,10 +259,16 @@
             .edit-status-alert {
                 background: linear-gradient(180deg, #2d2d2d 0%, #202020 100%);
                 border: 1px solid rgba(255,255,255,0.1);
-                color: #fff;
+                color: #fff !important; /* Force white text */
                 border-radius: 8px;
                 padding: 0.75rem 1rem;
             }
+
+            .edit-status-alert i,
+            .edit-status-alert .edit-status-text {
+                color: #fff !important; /* Force white text for icon and text */
+            }
+
 
             .edit-status-alert.editing {
                 background: linear-gradient(180deg, #1a472a 0%, #143d24 100%);
