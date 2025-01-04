@@ -220,7 +220,7 @@ function generateMedia(postData) {
         </iframe>
     ` : `
         <img src="${postData.mediaUrl}" alt="..." class="rounded" 
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"/>
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); "/>
     `;
 
     return `
