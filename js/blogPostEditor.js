@@ -1,3 +1,5 @@
+const debouncedUpdatePreview = debounce(updatePreview, 300);
+
 async function buildAssetStructure() {
     // Fetch asset structure from server
     const response = await fetch('js/data/imageDirectory.json');
@@ -168,6 +170,18 @@ function initializePreviewCollapseButtons() {
 function selectFile(path, event) {
     const fullPath = path.startsWith('assets/') ? path : `assets/img/${path}`;
     
+    // Copy to clipboard and show notification
+    navigator.clipboard.writeText(fullPath)
+        .then(() => {
+            showCopyNotification('Path copied to clipboard!', event);
+        })
+        .catch(err => {
+            console.error('Failed to copy path to clipboard:', err);
+            alert('Failed to copy path to clipboard');
+        });
+}
+
+function showCopyNotification(message, event) {
     // Create notification with initial hidden state
     const notification = document.createElement('div');
     notification.style.cssText = `
@@ -180,56 +194,46 @@ function selectFile(path, event) {
         transition: opacity 0.3s ease;
         pointer-events: none;
         opacity: 0;
+        z-index: 1000;
     `;
-    notification.textContent = 'Path copied to clipboard!';
+    notification.textContent = message;
     document.body.appendChild(notification);
 
     // Position handler considering bounds
     const updatePosition = (e) => {
-        const imagePreview = document.getElementById('image-preview');
-        const isPreviewVisible = imagePreview.style.display !== 'none';
-        
-        // Get cursor position
         let x = e.clientX + 20;
         let y = e.clientY + 20;
 
-        // Adjust for preview if visible
-        if (isPreviewVisible) {
-            const previewRect = imagePreview.getBoundingClientRect();
-            y = previewRect.bottom + 10;
+        // Ensure notification stays within viewport
+        const notificationRect = notification.getBoundingClientRect();
+        if (x + notificationRect.width > window.innerWidth) {
+            x = window.innerWidth - notificationRect.width - 20;
+        }
+        if (y + notificationRect.height > window.innerHeight) {
+            y = window.innerHeight - notificationRect.height - 20;
         }
 
-        // Set position immediately
         notification.style.left = `${x}px`;
         notification.style.top = `${y}px`;
     };
 
-    // Copy to clipboard and show notification
-    navigator.clipboard.writeText(fullPath)
-        .then(() => {
-            // Initial position from click event
-            updatePosition(event);
-            
-            // Show notification after position is set
-            notification.style.opacity = '1';
-            
-            // Start tracking mouse movement
-            document.addEventListener('mousemove', updatePosition);
-            
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                    document.removeEventListener('mousemove', updatePosition);
-                }, 300);
-            }, 2000);
-        })
-        .catch(err => {
-            console.error('Failed to copy path to clipboard:', err);
+    // Initial position from event
+    updatePosition(event);
+    
+    // Show notification
+    notification.style.opacity = '1';
+    
+    // Track mouse movement
+    document.addEventListener('mousemove', updatePosition);
+    
+    // Hide and cleanup after delay
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => {
             document.body.removeChild(notification);
             document.removeEventListener('mousemove', updatePosition);
-            alert('Failed to copy path to clipboard');
-        });
+        }, 300);
+    }, 2000);
 }
 
 function initializeFileLinks() {
@@ -313,36 +317,66 @@ function updateFormFromJson() {
 // Add event listener for JSON changes
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        // Existing file browser initialization
         const structure = await buildAssetStructure();
-        if (structure) {
-            document.getElementById('file-browser').innerHTML = buildFileBrowser(structure);
+        const fileBrowser = document.getElementById('file-browser');
+        if (fileBrowser) {
+            fileBrowser.innerHTML = buildFileBrowser(structure);
+            initializeFileLinks();
             initializeFileBrowserCollapses();
             initializeImagePreviews();
-            initializeFileLinks();
-        } else {
-            document.getElementById('file-browser').innerHTML = 
-                '<div class="alert alert-danger">Error loading assets</div>';
         }
-
-        // Initialize JSON textarea
-        const outputJson = document.getElementById('outputJson');
-        if (outputJson) {
-            outputJson.removeAttribute('readonly');
-            outputJson.addEventListener('input', debounce(updateFormFromJson, 500));
-        }
-
-        // Initialize blog post generator
-        if (typeof generateBlogPost !== 'function') {
-            console.error('generateBlogPost function not found');
-            document.getElementById('preview-container').innerHTML = 
-                '<div class="alert alert-danger">Error: Blog post generator not initialized</div>';
-        }
-        
-        updatePreview();
     } catch (error) {
-        console.error('Error during initialization:', error);
+        console.error('Error initializing file browser:', error);
     }
+
+    const jsonOutput = document.getElementById('outputJson');
+    if (jsonOutput) {
+        jsonOutput.addEventListener('input', function() {
+            try {
+                // Attempt to parse JSON to validate it
+                JSON.parse(this.value);
+                // If valid, update the form
+                updateFormFromJson();
+            } catch (error) {
+                // Invalid JSON - don't update form
+                console.error('Invalid JSON:', error);
+            }
+        });
+    }
+
+    // Initialize preview immediately
+    updatePreview();
+    
+    // Add change listeners to all form inputs with debouncing
+    document.querySelectorAll('input, textarea, select').forEach(input => {
+        input.addEventListener('input', debouncedUpdatePreview);
+        input.addEventListener('change', debouncedUpdatePreview);
+    });
+    
+    // Handle section and change additions/removals
+    const originalAddSection = window.addSection;
+    window.addSection = function() {
+        originalAddSection();
+        debouncedUpdatePreview();
+    };
+    
+    const originalRemoveSection = window.removeSection;
+    window.removeSection = function(button) {
+        originalRemoveSection(button);
+        debouncedUpdatePreview();
+    };
+    
+    const originalAddChange = window.addChange;
+    window.addChange = function(button) {
+        originalAddChange(button);
+        debouncedUpdatePreview();
+    };
+    
+    const originalRemoveChange = window.removeChange;
+    window.removeChange = function(button) {
+        originalRemoveChange(button);
+        debouncedUpdatePreview();
+    };
 });
 
 // Debounce helper function
@@ -444,14 +478,26 @@ function updatePreview() {
             blogPost.sections.push(sectionData);
         });
 
+        // Validate the blog post data
+        const isValid = validateBlogPost(blogPost, true);
+        
+        // Update preview and JSON output
         const previewHTML = generateBlogPost(blogPost, document.getElementById('blogType').value, true);
         document.getElementById('preview-container').innerHTML = previewHTML;
         document.getElementById('outputJson').value = JSON.stringify(blogPost, null, 4);
         initializePreviewCollapseButtons();
+
+        // Show/hide action buttons based on JSON validity
+        document.getElementById('downloadJsonBtn').style.display = isValid ? 'block' : 'none';
+        document.getElementById('copyJsonBtn').style.display = isValid ? 'block' : 'none';
     } catch (error) {
         console.error('Preview generation error:', error);
         document.getElementById('preview-container').innerHTML = 
             `<div class="alert alert-danger">Error generating preview: ${error.message}</div>`;
+        
+        // Hide action buttons if JSON is invalid
+        document.getElementById('downloadJsonBtn').style.display = 'none';
+        document.getElementById('copyJsonBtn').style.display = 'none';
     }
 }
 
@@ -507,6 +553,220 @@ function generateJson() {
     } catch (error) {
         console.error('Error generating JSON:', error);
         alert('Error generating JSON: ' + error.message);
+    }
+}
+
+async function copyFullJson() {
+    try {
+        // Get current blog post data
+        const currentPost = {
+            headerImg: document.getElementById('headerImg').value,
+            type: document.getElementById('type').value,
+            version: document.getElementById('version').value,
+            date: document.getElementById('date').value,
+            title: document.getElementById('title').value,
+            author: document.getElementById('author').value,
+            hidden: false,
+            devNotes: document.getElementById('devNotes').value,
+            sections: [],
+            mediaUrl: document.getElementById('mediaUrl').value,
+            videoUrl: document.getElementById('videoUrl').value,
+            mediaType: document.getElementById('mediaType').value,
+            downloadUrl: document.getElementById('downloadUrl').value
+        };
+
+        // Get sections data
+        document.querySelectorAll('.section-container').forEach(section => {
+            const sectionData = {
+                title: section.querySelector('.section-title').value,
+                changes: []
+            };
+            
+            section.querySelectorAll('.change-container').forEach(change => {
+                sectionData.changes.push({
+                    name: change.querySelector('.change-name').value,
+                    description: change.querySelector('.change-description').value
+                });
+            });
+            
+            currentPost.sections.push(sectionData);
+        });
+
+        // Get existing posts
+        const blogType = document.getElementById('blogType').value;
+        const response = await fetch(BLOG_CONFIGS[blogType].jsonPath);
+        const existingData = await response.json();
+        
+        // Check if we're updating an existing post or adding a new one
+        const selectedOption = document.getElementById('existingPosts').selectedOptions[0];
+        if (selectedOption?.value) {
+            // Update existing post
+            const index = existingData.posts.findIndex(post => post.version === currentPost.version);
+            if (index !== -1) {
+                existingData.posts[index] = currentPost;
+            }
+        } else {
+            // Add new post to top
+            existingData.posts.unshift(currentPost);
+        }
+
+        // Try to copy using the clipboard API
+        try {
+            const jsonString = JSON.stringify(existingData, null, 4);
+            await navigator.clipboard.writeText(jsonString);
+            const defaultPosition = { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 };
+            showCopyNotification('Updated JSON copied to clipboard!', event || defaultPosition);
+        } catch (clipboardError) {
+            // Fallback to execCommand
+            const textarea = document.createElement('textarea');
+            textarea.value = jsonString;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                const defaultPosition = { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 };
+                showCopyNotification('Updated JSON copied to clipboard!', event || defaultPosition);
+            } catch (execError) {
+                console.error('All clipboard operations failed:', execError);
+                alert('Could not copy to clipboard - please check the console for the updated JSON');
+                console.log('Updated JSON:', jsonString);
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+    } catch (error) {
+        console.error('Error generating full JSON:', error);
+        alert('Error generating full JSON: ' + error.message);
+    }
+}
+
+async function downloadFullJson() {
+    try {
+        // Get current blog post data
+        const currentPost = {
+            headerImg: document.getElementById('headerImg').value,
+            type: document.getElementById('type').value,
+            version: document.getElementById('version').value,
+            date: document.getElementById('date').value,
+            title: document.getElementById('title').value,
+            author: document.getElementById('author').value,
+            hidden: false,
+            devNotes: document.getElementById('devNotes').value,
+            sections: [],
+            mediaUrl: document.getElementById('mediaUrl').value,
+            videoUrl: document.getElementById('videoUrl').value,
+            mediaType: document.getElementById('mediaType').value,
+            downloadUrl: document.getElementById('downloadUrl').value
+        };
+
+        // Get sections data
+        document.querySelectorAll('.section-container').forEach(section => {
+            const sectionData = {
+                title: section.querySelector('.section-title').value,
+                changes: []
+            };
+            
+            section.querySelectorAll('.change-container').forEach(change => {
+                sectionData.changes.push({
+                    name: change.querySelector('.change-name').value,
+                    description: change.querySelector('.change-description').value
+                });
+            });
+            
+            currentPost.sections.push(sectionData);
+        });
+
+        // Get existing posts
+        const blogType = document.getElementById('blogType').value;
+        const response = await fetch(BLOG_CONFIGS[blogType].jsonPath);
+        const existingData = await response.json();
+        
+        // Check if we're updating an existing post or adding a new one
+        const selectedOption = document.getElementById('existingPosts').selectedOptions[0];
+        if (selectedOption?.value) {
+            // Update existing post
+            const index = existingData.posts.findIndex(post => post.version === currentPost.version);
+            if (index !== -1) {
+                existingData.posts[index] = currentPost;
+            }
+        } else {
+            // Add new post to top
+            existingData.posts.unshift(currentPost);
+        }
+
+        // Download full JSON
+        const fileName = `blogPosts_${blogType}.json`;
+        const jsonString = JSON.stringify(existingData, null, 4);
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    } catch (error) {
+        console.error('Error generating full JSON:', error);
+        alert('Error generating full JSON: ' + error.message);
+    }
+}
+
+async function deleteSelectedPost(event) {  // Add event parameter
+    const select = document.getElementById('existingPosts');
+    const selectedOption = select.selectedOptions[0];
+    
+    if (!selectedOption?.value) {
+        alert('Please select a post to delete');
+        return;
+    }
+
+    try {
+        const blogType = document.getElementById('blogType').value;
+        const response = await fetch(BLOG_CONFIGS[blogType].jsonPath);
+        const existingData = await response.json();
+        
+        const currentPost = JSON.parse(selectedOption.dataset.json);
+        existingData.posts = existingData.posts.filter(post => 
+            !(post.version === currentPost.version && 
+              post.title === currentPost.title && 
+              post.date === currentPost.date)
+        );
+
+        const jsonString = JSON.stringify(existingData, null, 4);
+
+        // Try to copy using the clipboard API first
+        try {
+            await navigator.clipboard.writeText(jsonString);
+            // Use a default position if no event is provided
+            const defaultPosition = { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 };
+            showCopyNotification('Updated JSON copied to clipboard!', event || defaultPosition);
+        } catch (clipboardError) {
+            // Fallback to execCommand
+            const textarea = document.createElement('textarea');
+            textarea.value = jsonString;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                const defaultPosition = { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 };
+                showCopyNotification('Updated JSON copied to clipboard!', event || defaultPosition);
+            } catch (execError) {
+                console.error('All clipboard operations failed:', execError);
+                alert('Could not copy to clipboard - please check the console for the updated JSON');
+                console.log('Updated JSON:', jsonString);
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+
+        clearPostSelection();
+        await populateExistingPosts();
+    } catch (error) {
+        console.error('Error deleting post:', error);
+        alert('Error deleting post: ' + error.message);
     }
 }
 

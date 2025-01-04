@@ -4,7 +4,7 @@
             "headerImg": "assets/img/Logos/HexVR_Logo_1.png",
             "type": "Major Update",
             "version": "B0.7.XXX",
-            "date": "1/3/2025",
+            "date": "1/6/2025",
             "title": "A Very Merry Hex VR Update",
             "author": "Blü",
             "hidden": false,
@@ -92,7 +92,6 @@
             ],
             "mediaUrl": "assets/img/Screenshots/Screenshot_12.png",
             "videoUrl": "",
-            "_comments": "mediaType can be 'image' or 'video'",
             "mediaType": "image",
             "downloadUrl": "https://www.meta.com/en-gb/experiences/7202337956544173/"
         },
