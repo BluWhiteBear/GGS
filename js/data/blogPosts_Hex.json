@@ -1,0 +1,199 @@
+{
+    "posts": [
+        {
+            "headerImg": "assets/img/Logos/HexVR_Logo_1.png",
+            "type": "Major Update",
+            "version": "B0.7.XXX",
+            "date": "1/3/2025",
+            "title": "A Very Merry Hex VR Update",
+            "author": "Blü",
+            "hidden": false,
+            "devNotes": "Happy Holidays Hex Knights! This is Hex VR's first major update since the start of Beta and we're happy to share what we've been working on. Between new features, improvements to existing features, and some extra goodies, this Holiday update will be something to remember!",
+            "sections": [
+                {
+                    "title": "Seasonal Changes",
+                    "changes": [
+                        {
+                            "name": "Winter's Here",
+                            "description": "The Main Menu and Stadium have been reflavored to incorporate a Winter/Holiday theme."
+                        },
+                        {
+                            "name": "Seasonal Music",
+                            "description": "Enjoy the sounds of the season with the new Holiday Remix of the Main Menu music."
+                        },
+                        {
+                            "name": "Festive Attire",
+                            "description": "The Hex Knights have been temporarily decked out in Festive hats."
+                        },
+                        {
+                            "name": "Winter Festivities will conclude in late January",
+                            "description": "Enjoy the Winter theme while it lasts!"
+                        }
+                    ]
+                },
+                {
+                    "title": "New Features",
+                    "changes": [
+                        {
+                            "name": "PCVR Rift Support (Experimental)",
+                            "description": "Hex VR now officially supports play through the Meta desktop app and Meta PCVR headsets. Launching on a new platform is always a daunting task, so we ask that you bear with us if there are growing pains."
+                        },
+                        {
+                            "name": "Gamemode 1.0 (Experimental)",
+                            "description": "This marks the introduction of our first iteration of internal game rules that we'll be sharing with you all. The room owner can start and end the match from the Stadium Pedestal in either spawn room at any time. Games are played first to 20 points."
+                        },
+                        {
+                            "name": "Announcer 1.0 (Experimental)",
+                            "description": "We're happy to introduce the announcer of Hex VR's Stadium Gamemode, Freyliana (AKA, JeepGirlz)! At least that's what I'd like to say. Due to some timing constraints, Announcer 1.0 will temporarily feature CadeXR's voice."
+                        },
+                        {
+                            "name": "Moderation Tools (Experimental)",
+                            "description": "A work in progress moderation system was stealth added to the game in the previous update. But due to lack of awareness, few reports have come in that required us to utilize it. So we formally ask that you as the community leverage the support steps we describe on our Help page in order to report violations of our Code of Conduct. After we've gotten some experience with these tools under our belts, we'll be working to expand upon them to put more control in the community's hands."
+                        },
+                        {
+                            "name": "Stadium Reset",
+                            "description": "Room owners now have access to a new option in the Stadium Pedestal that allows them to reset the state of the arena, i.e. reset the disk position and team scores."
+                        }
+                    ]
+                },
+                {
+                    "title": "Improvements",
+                    "changes": [
+                        {
+                            "name": "Personal Pedestal Rewrite",
+                            "description": "The Arcane Slate (Personal Menu) has been retooled into the Personal Pedestal. It's now accessible via the spawn rooms."
+                        },
+                        {
+                            "name": "Personal Pedestal Improvements",
+                            "description": "All new layout and features included in the Personal Pedestal, including a small personal mirror."
+                        },
+                        {
+                            "name": "Improved Stadium Audio Reverb Zones",
+                            "description": "Adjusted reverb zones for clearer audio."
+                        },
+                        {
+                            "name": "Increased Voice Volume Multiplier",
+                            "description": "Even at maximum volume, player voices tended to be quite quiet. So we've increased the player voice attenuation range and increased the player voice chat volume multiplier from 1x to 1.5x."
+                        },
+                        {
+                            "name": "Improved Visuals",
+                            "description": "Adjusted lighting and textures across multiple areas of the Stadium and Main Menu."
+                        },
+                        {
+                            "name": "All New Toon Shader",
+                            "description": "Replaced the default Unity PBR Lit material with a custom built toon shader."
+                        },
+                        {
+                            "name": "Background Systems",
+                            "description": "Created/Implemented several new systems that we'll be leveraging in new features coming in the near future including scene switching."
+                        }
+                    ]
+                }
+            ],
+            "mediaUrl": "assets/img/Screenshots/Screenshot_12.png",
+            "videoUrl": "",
+            "_comments": "mediaType can be 'image' or 'video'",
+            "mediaType": "image",
+            "downloadUrl": "https://www.meta.com/en-gb/experiences/7202337956544173/"
+        },
+        {
+            "headerImg": "assets/img/Logos/HexVR_Logo_1.png",
+            "type": "Minor Update",
+            "version": "B0.6.488",
+            "date": "6/23/2024",
+            "title": "Communication & Clarity",
+            "author": "Blü",
+            "hidden": false,
+            "devNotes": "Don't let the \"Minor Update\" tag in the title fool you, we've been hard at work improving the game in ways that matter a ton. This update includes bug fixes, quality of life improvements, and development tools that should make future development all that much smoother.",
+            "sections": [
+                {
+                    "title": "New Features",
+                    "changes": [
+                        {
+                            "name": "Tutorial 1.0",
+                            "description": "The Main Menu now features a very simple text and image based tutorial explaining basic inputs and interactions"
+                        },
+                        {
+                            "name": "Score Reset Button",
+                            "description": "The Stadium Spawn Room Pedestals now feature a Score Reset button. This will set the room's score back to 0:0"
+                        },
+                        {
+                            "name": "Self Mute Toggle",
+                            "description": "The Personal Menu, now named the \"Runic Slate\", now features an audio setting for muting your own microphone"
+                        },
+                        {
+                            "name": "Mute Other Toggle",
+                            "description": "The Runic Slate's player list now has the ability to mute specific players"
+                        },
+                        {
+                            "name": "Mic Activity Indicator",
+                            "description": "When speaking, an icon will appear above your head to indicate that your microphone is active"
+                        },
+                        {
+                            "name": "HUD Settings",
+                            "description": "The Runic Slate's Graphics settings tab now features HUD customization options, allowing you to cycle through 3 different HUD options: Full, Minimal, and Off"
+                        }
+                    ]
+                }
+            ],
+            "mediaUrl": "assets/img/Screenshots/Screenshot_8.png",
+            "videoUrl": "",
+            "_comments": "mediaType can be 'image' or 'video'",
+            "mediaType": "image",
+            "downloadUrl": "https://www.meta.com/en-gb/experiences/7202337956544173/"
+        },
+        {
+            "headerImg": "assets/img/Logos/HexVR_Logo_1.png",
+            "type": "Major Update",
+            "version": "B0.5.372",
+            "date": "3/29/2024",
+            "title": "Beta Release",
+            "author": "Blü",
+            "hidden": false,
+            "devNotes": "Hex VR is Officially in Open Beta! We are excited to introduce the first of many Beta updates to come for Hex VR. We are excited to see the community grow and evolve as we continue to develop the game.",
+            "sections": [
+                {
+                    "title": "New Features",
+                    "changes": [
+                        {
+                            "name": "In Game Server Browser",
+                            "description": ""
+                        },
+                        {
+                            "name": "Display Name System",
+                            "description": ""
+                        },
+                        {
+                            "name": "Full Body Avatar IK",
+                            "description": ""
+                        },
+                        {
+                            "name": "Team System",
+                            "description": ""
+                        },
+                        {
+                            "name": "Regrabbing (Experimental*)",
+                            "description": ""
+                        },
+                        {
+                            "name": "Pitch and Roll (Experimental*)",
+                            "description": ""
+                        },
+                        {
+                            "name": "Spectator Mode (Experimental*)",
+                            "description": ""
+                        },
+                        {
+                            "name": "App Lab",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "mediaUrl": "",
+            "videoUrl": "https://www.youtube.com/embed/w9aJQ7zMAVs?si=ZeHj41Ryjxzk7c4x&autoplay=0&mute=1&loop=1",
+            "mediaType": "video",
+            "downloadUrl": "https://www.meta.com/en-gb/experiences/7202337956544173/"
+        }
+    ]
+}

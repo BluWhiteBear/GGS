@@ -1,31 +1,4 @@
 /****************************
- * CACHE MANAGEMENT
- ****************************/
-const pageCache = new Map();
-const head = document.head;
-const storage = window.sessionStorage;
-
-async function refreshCache(url) {
-    try {
-        const startTime = performance.now();
-        const response = await fetch(url, {
-            priority: 'high',
-            cache: 'no-cache'
-        });
-        const html = await response.text();
-        
-        const compressed = btoa(html);
-        sessionStorage.setItem(url, compressed);
-        sessionStorage.setItem(`${url}_timestamp`, Date.now());
-        
-        performance.mark(`cache-refresh-${url}`);
-        console.debug(`Cache refresh took ${performance.now() - startTime}ms`);
-    } catch (error) {
-        console.error('Error refreshing cache:', error);
-    }
-}
-
-/****************************
  * COMPONENT LOADING
  ****************************/
 function loadHTML(elementId, file) {
@@ -39,31 +12,20 @@ function loadHTML(elementId, file) {
         });
 }
 
-async function fetchAndCache(url, elementId) {
-    try {
-        const response = await fetch(url, { priority: 'high', cache: 'no-cache' });
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-        const content = await response.text();
-        storage.setItem(url, btoa(content));
-        storage.setItem(`${url}_timestamp`, Date.now().toString());
-
-        const targetElement = document.getElementById(elementId);
-        if (targetElement) {
-            targetElement.innerHTML = content;
-            if (elementId === 'navbar-placeholder') {
-                initializeThemeToggles();
-            }
-        }
-
-        requestIdleCallback(() => updateActiveNavLink());
-    } catch (error) {
-        console.error('Error fetching content:', error);
-        const targetElement = document.getElementById(elementId);
-        if (targetElement) {
-            targetElement.innerHTML = '<p>Error loading content. Please try again later.</p>';
-        }
-    }
+function loadHeader(elementId, title, subtitle) {
+    const headerHTML = `
+        <div class="card text-white my-4" style="background: linear-gradient(45deg, #1a1a1a, #2d2d2d); border-radius: 15px;">
+            <div class="card-body py-4">
+                <div class="row align-items-center">
+                    <div class="col-12 text-center">
+                        <h1 class="font-weight-light mb-2">${title}</h1>
+                        <p class="text-light mb-0" style="font-size: 1.1rem;">${subtitle}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    document.getElementById(elementId).innerHTML = headerHTML;
 }
 
 /****************************
@@ -126,12 +88,12 @@ function updateActiveNavLink() {
      ****************************/
     // Extract and normalize current page path
     let currentPath = window.location.pathname;
-    console.debug('[Nav] Raw path:', currentPath);
+    //console.debug('[Nav] Raw path:', currentPath);
 
     // Normalize homepage path
     const isHomePage = currentPath === '/' || currentPath === '' || currentPath.endsWith('/index.html');
     currentPath = isHomePage ? '/' : currentPath.replace(/^\//, '').toLowerCase();
-    console.debug('[Nav] Normalized path:', currentPath, 'Is homepage:', isHomePage);
+    //console.debug('[Nav] Normalized path:', currentPath, 'Is homepage:', isHomePage);
 
     /****************************
      * RESET NAVIGATION STATE
@@ -150,7 +112,7 @@ function updateActiveNavLink() {
     // Check each navigation link for matches
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = (link.getAttribute('href') || '').toLowerCase();
-        console.debug(`[Nav] Checking link: "${href}" against path: "${currentPath}"`);
+        //console.debug(`[Nav] Checking link: "${href}" against path: "${currentPath}"`);
 
         // Homepage matching logic
         const isHomeLink = href === '/' || href === './' || href === '' || href === 'index.html';
@@ -158,7 +120,7 @@ function updateActiveNavLink() {
             link.classList.add('active');
             link.setAttribute('aria-current', 'page');
             activeLinkFound = true;
-            console.debug('[Nav] Active link found:', href);
+            //console.debug('[Nav] Active link found:', href);
         }
     });
 
@@ -192,7 +154,7 @@ function updateActiveNavLink() {
      * FALLBACK LOGIC
      ****************************/
     if (!activeLinkFound) {
-        console.warn('[Nav] No active link matched. Falling back to highlight "Home".');
+        //console.warn('[Nav] No active link matched. Falling back to highlight "Home".');
         document.querySelectorAll('.nav-link').forEach(link => {
             const href = (link.getAttribute('href') || '').toLowerCase();
             if (href === '/' || href === '' || href === 'index.html') {
@@ -238,11 +200,18 @@ function initializeThemeToggles() {
 }
 
 function initializeCollapseButtons() {
-    document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
+    // Skip initialization if we're on the blog post generator page
+    if (window.location.pathname.includes('blogPostDesigner.html')) {
+        return;
+    }
+    
+    // Skip elements inside preview container
+    document.querySelectorAll('[data-bs-toggle="collapse"]:not(#preview-container [data-bs-toggle="collapse"])').forEach(button => {
         const target = document.querySelector(button.getAttribute('data-bs-target'));
-        
-        target.addEventListener('show.bs.collapse', () => button.textContent = 'Show Less');
-        target.addEventListener('hide.bs.collapse', () => button.textContent = 'Show More');
+        if (target) {
+            target.addEventListener('show.bs.collapse', () => button.textContent = 'Show Less');
+            target.addEventListener('hide.bs.collapse', () => button.textContent = 'Show More');
+        }
     });
 }
 
@@ -273,9 +242,124 @@ function updateNavBarLinkState() {
 /****************************
  * STARTUP
  ****************************/
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     updateNavBarLinkState();
     loadComponents();
     initializeCollapseButtons();
     setTheme(localStorage.getItem('theme') || 'light');
+    
+    // Add observer for navbar loading completion
+    const navbarPlaceholder = document.getElementById('navbar-placeholder');
+    if (navbarPlaceholder) {
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes.length) {
+                    checkDevAuth();
+                    observer.disconnect();
+                }
+            });
+        });
+        observer.observe(navbarPlaceholder, { childList: true });
+    } else {
+        checkDevAuth();
+    }
 });
+
+/****************************
+ * AUTH
+ ****************************/
+let cryptoJsLoaded = false;
+
+// Update the script loading
+const authScript = document.createElement('script');
+authScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js';
+authScript.onload = () => {
+    cryptoJsLoaded = true;
+    // Check for hash generation request
+    if (window.location.hash === '#generate') {
+        generatePasswordHash();
+    }
+};
+document.head.appendChild(authScript);
+
+const VALID_DEV_HASH = 'b02ab0decbf12da19c3f2ae48a6ee04ff748f9410f8c30c2d6e3414fcb017456';
+
+function showDevAuth() {
+    if (!cryptoJsLoaded) {
+        console.warn('CryptoJS not loaded yet');
+        return;
+    }
+    const modal = new bootstrap.Modal(document.getElementById('devAuthModal'));
+    modal.show();
+}
+
+function setCookie(name, value, days) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;domain=${window.location.hostname};SameSite=Strict`;
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function authenticateDev(event) {
+    if (!cryptoJsLoaded) {
+        console.warn('CryptoJS not loaded yet');
+        return;
+    }
+    event.preventDefault();
+    const password = document.getElementById('devPassword').value;
+    const hash = CryptoJS.SHA256(password).toString();
+    
+    if (hash === VALID_DEV_HASH) {
+        setCookie('devAuth', hash, 7); // Store auth for 7 days
+        document.querySelectorAll('.dev-only').forEach(el => el.classList.remove('d-none'));
+        const modal = bootstrap.Modal.getInstance(document.getElementById('devAuthModal'));
+        if (modal) modal.hide();
+    } else {
+        const input = document.getElementById('devPassword');
+        input.classList.add('is-invalid');
+        setTimeout(() => input.classList.remove('is-invalid'), 3000);
+    }
+}
+
+function checkDevAuth() {
+    const storedAuth = getCookie('devAuth');
+    if (storedAuth === VALID_DEV_HASH) {
+        document.querySelectorAll('.dev-only').forEach(el => el.classList.remove('d-none'));
+        return true;
+    }
+    return false;
+}
+
+function logoutDev() {
+    // Remove the auth cookie
+    document.cookie = 'devAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    // Hide dev-only elements
+    document.querySelectorAll('.dev-only').forEach(el => el.classList.add('d-none'));
+}
+
+// Check auth on page load
+document.addEventListener('DOMContentLoaded', () => {
+    checkDevAuth();
+});
+
+function generatePasswordHash() {
+    if (!cryptoJsLoaded) {
+        console.warn('CryptoJS not loaded yet. Please try again.');
+        return;
+    }
+    const password = prompt('Enter password to hash:');
+    if (password) {
+        const hash = CryptoJS.SHA256(password).toString();
+        console.log('Password Hash:', hash);
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "assets": {
+        "img": {
+            "Compendium": {
+                "files": [
+                    "comp_Knight_1.png",
+                    "comp_Pedestal_1.png",
+                    "comp_Placeholder_1.png"
+                ]
+            },
+            "Graphics": {
+                "files": [
+                    "banner_1.png"
+                ]
+            },
+            "Logos": {
+                "files": [
+                    "CoverSquare_1.png",
+                    "GoldenGear_Logo.png",
+                    "HexVR_Logo_1.png",
+                    "ggsLogo_1.png",
+                    "ggsLogo_2.png"
+                ]
+            },
+            "Screenshots": {
+                "files": [
+                    "Screenshot_5.png",
+                    "Screenshot_6.png",
+                    "Screenshot_7.png",
+                    "Screenshot_8.png",
+                    "Screenshot_9.png",
+                    "Screenshot_10.PNG",
+                    "Screenshot_11.png",
+                    "Screenshot_12.png"
+                ]
+            },
+            "Staff": {
+                "files": [
+                    "team_bal.png",
+                    "team_blu.png",
+                    "team_cade.jpg",
+                    "team_coastal.png",
+                    "team_jade.png",
+                    "team_mars.png",
+                    "team_nerd.png",
+                    "team_ramona.png",
+                    "team_silent.png",
+                    "team_simo.png"
+                ]
+            }
+        }
+    }
+}

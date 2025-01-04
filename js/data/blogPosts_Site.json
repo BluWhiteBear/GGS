@@ -1,0 +1,42 @@
+{
+    "posts": [
+        {
+            "headerImg": "assets/img/Logos/GoldenGear_Logo.png",
+            "type": "Major Update",
+            "version": "1.1.0",
+            "date": "1/1/2025",
+            "title": "Revision 3",
+            "author": "Blü",
+            "hidden": false,
+            "devNotes": "Happy Holidays everybody! This is the site's 3rd Major overhaul. It brings a fresh new layout to multiple pages, introduces the all new Compendium, and a lot of back end improvements.",
+            "sections": [
+                {
+                    "title": "Changes",
+                    "changes": [
+                        {
+                            "name": "All New Layout",
+                            "description": "The site's had a front to back facelift. The new layout is more modern and easier to navigate."
+                        },
+                        {
+                            "name": "Compendium",
+                            "description": "The Compendium is a new page that will be updated with all the information you need to know about the game and it's terminology."
+                        },
+                        {
+                            "name": "Theme Toggle",
+                            "description": "Huzzah! A dark mode toggle at long last."
+                        },
+                        {
+                            "name": "Back End Improvements",
+                            "description": "The site's back end has been improved to make it easier to update and maintain."
+                        }
+                    ]
+                }
+            ],
+            "mediaUrl": "",
+            "videoUrl": "",
+            "_comments": "mediaType can be 'image' or 'video'",
+            "mediaType": "image",
+            "downloadUrl": ""
+        }
+    ]
+}
