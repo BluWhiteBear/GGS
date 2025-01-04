@@ -341,8 +341,8 @@ function checkDevAuth() {
 }
 
 function logoutDev() {
-    // Remove the auth cookie
-    document.cookie = 'devAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    // Remove the auth cookie with matching parameters
+    setCookie('devAuth', '', -1); // Set expiry to past with same parameters
     // Hide dev-only elements
     document.querySelectorAll('.dev-only').forEach(el => el.classList.add('d-none'));
 }
