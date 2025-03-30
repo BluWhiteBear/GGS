@@ -4,33 +4,12 @@
             "headerImg": "assets/img/Logos/HexVR_Logo_1.png",
             "type": "Major Update",
             "version": "B0.7.XXX",
-            "date": "1/6/2025",
-            "title": "A Very Merry Hex VR Update",
+            "date": "4/30/2025",
+            "title": "Game Time",
             "author": "Blü",
             "hidden": true,
-            "devNotes": "Happy Holidays Hex Knights! This is Hex VR's first major update since the start of Beta and we're happy to share what we've been working on. Between new features, improvements to existing features, and some extra goodies, this Holiday update will be something to remember!",
+            "devNotes": "Long time no see Hex Knights! This is Hex VR's first major update since the start of Beta and we're happy to share what we've been working on. Between new features, improvements to existing features, and some extra goodies, this  update will be something to remember!",
             "sections": [
-                {
-                    "title": "Seasonal Changes",
-                    "changes": [
-                        {
-                            "name": "Winter's Here",
-                            "description": "The Main Menu and Stadium have been reflavored to incorporate a Winter/Holiday theme."
-                        },
-                        {
-                            "name": "Seasonal Music",
-                            "description": "Enjoy the sounds of the season with the new Holiday Remix of the Main Menu music."
-                        },
-                        {
-                            "name": "Festive Attire",
-                            "description": "The Hex Knights have been temporarily decked out in Festive hats."
-                        },
-                        {
-                            "name": "Winter Festivities will conclude in late January",
-                            "description": "Enjoy the Winter theme while it lasts!"
-                        }
-                    ]
-                },
                 {
                     "title": "New Features",
                     "changes": [
@@ -53,6 +32,14 @@
                         {
                             "name": "Stadium Reset",
                             "description": "Room owners now have access to a new option in the Stadium Pedestal that allows them to reset the state of the arena, i.e. reset the disk position and team scores."
+                        },
+                        {
+                            "name": "Armor Set Customization (Experimental)",
+                            "description": "We're introducing a few ways to customize and differentiate yourself! \n- Armor Paints\n- Titles\n- Badges"
+                        },
+                        {
+                            "name": "Social Lobby",
+                            "description": "We're introducing a new option when creating a room; the Social Lobby! We call it the 'Town Square.' The Town Square acts as an open social hub for gathering with your fellow Knights outside the Stadium."
                         }
                     ]
                 },
@@ -81,11 +68,15 @@
                         },
                         {
                             "name": "All New Toon Shader",
-                            "description": "Replaced the default Unity PBR Lit material with a custom built toon shader."
+                            "description": "Replaced the default Unity PBR Lit material with a custom built toon shader. "
                         },
                         {
                             "name": "Background Systems",
                             "description": "Created/Implemented several new systems that we'll be leveraging in new features coming in the near future including scene switching."
+                        },
+                        {
+                            "name": "Voice Activity Visuals",
+                            "description": "We've introduced a new visual for indicating when a player is speaking. Along with the previously added Mic Indicator that appears next to the player's overhead tag, the player's visor glow will now brighten when speaking!"
                         }
                     ]
                 }
