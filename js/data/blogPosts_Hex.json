@@ -7,7 +7,7 @@
             "date": "4/30/2025",
             "title": "Game Time",
             "author": "Blü",
-            "hidden": false,
+            "hidden": true,
             "devNotes": "Long time no see Hex Knights! This is Hex VR's first major update since the start of Beta and we're happy to share what we've been working on. Between new features, improvements to existing features, and some extra goodies, this  update will be something to remember!",
             "sections": [
                 {
