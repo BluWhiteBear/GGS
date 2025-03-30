@@ -7,7 +7,7 @@
             "date": "4/30/2025",
             "title": "Game Time",
             "author": "Blü",
-            "hidden": true,
+            "hidden": false,
             "devNotes": "Long time no see Hex Knights! This is Hex VR's first major update since the start of Beta and we're happy to share what we've been working on. Between new features, improvements to existing features, and some extra goodies, this  update will be something to remember!",
             "sections": [
                 {
@@ -40,6 +40,14 @@
                         {
                             "name": "Social Lobby",
                             "description": "We're introducing a new option when creating a room; the Social Lobby! We call it the 'Town Square.' The Town Square acts as an open social hub for gathering with your fellow Knights outside the Stadium."
+                        },
+                        {
+                            "name": "Snap Turning",
+                            "description": "Introducing snap turning! You can now change your turning mode in the Universal Pedestal's Settings menu."
+                        },
+                        {
+                            "name": "New Easter Egg",
+                            "description": "Added a new easter egg just out of bounds of the arena! It references a small but vocal group in our community! You know who you are..."
                         }
                     ]
                 },
@@ -72,11 +80,24 @@
                         },
                         {
                             "name": "Background Systems",
-                            "description": "Created/Implemented several new systems that we'll be leveraging in new features coming in the near future including scene switching."
+                            "description": "Created/Implemented several new systems that we'll be leveraging in new features coming in the near future including scene switching, temporary seasonal cosmetics, and much more."
                         },
                         {
                             "name": "Voice Activity Visuals",
                             "description": "We've introduced a new visual for indicating when a player is speaking. Along with the previously added Mic Indicator that appears next to the player's overhead tag, the player's visor glow will now brighten when speaking!"
+                        },
+                        {
+                            "name": "Pedestal Button Improvements",
+                            "description": "All touch buttons now physically actuate instead of instantly triggering when touched."
+                        }
+                    ]
+                },
+                {
+                    "title": "Notes",
+                    "changes": [
+                        {
+                            "name": "Personal Disk Temporarily Removed",
+                            "description": "Due to an ongoing issue we're troubleshooting, the Personal Practice Disk has been disabled"
                         }
                     ]
                 }
