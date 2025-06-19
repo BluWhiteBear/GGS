@@ -347,11 +347,6 @@ function logoutDev() {
     document.querySelectorAll('.dev-only').forEach(el => el.classList.add('d-none'));
 }
 
-// Check auth on page load
-document.addEventListener('DOMContentLoaded', () => {
-    checkDevAuth();
-});
-
 function generatePasswordHash() {
     if (!cryptoJsLoaded) {
         console.warn('CryptoJS not loaded yet. Please try again.');

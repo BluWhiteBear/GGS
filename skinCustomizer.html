@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Customize your character skin for Hex VR" />
+        <meta name="author" content="Golden Gear Studios" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="title" content="Golden Gear Studios - Armor Finish Designer" />
+        <meta property="og:title" content="Golden Gear Studios - Armor Finish Designer" />
+        <meta name="description" content="Design a unique Finish for your Armor" />
+        <meta property="og:description" content="Design a unique Finish for your Armor" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://goldengearstudios.com/skinCustomizer.html" />
+        <meta property="og:image" content="https://goldengearstudios.com/assets/img/banner_1.png" />
+
+        <title>GG Studios - Armor Finish Designer</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+        <link rel="preload" href="navbar.html" as="fetch" crossorigin>
+        <link rel="preload" href="css/styles.css" as="style">
+        <link rel="preload" href="js/scripts.js" as="script">        
+        <!-- Three.js and required addons -->
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/utils/BufferGeometryUtils.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/FBXLoader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>        <!-- No longer using post-processing for outline effects -->
+        
+        <style>            
+            #model-container {
+                width: 100%;
+                height: 600px;
+                background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+                border-radius: 15px;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .control-panel {
+                background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 12px;
+                padding: 20px;
+                height: 100%;
+                overflow-y: auto;
+            }
+            
+            /* Responsive adjustments for side-by-side layout */
+            @media (min-width: 992px) {
+                #model-container {
+                    height: 700px;
+                }
+                
+                .control-panel {
+                    max-height: 700px;
+                    margin-top: 0;
+                }
+            }
+            
+            @media (max-width: 991px) {
+                .control-panel {
+                    margin-top: 20px;
+                }
+            }
+            
+            .loading-spinner {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-size: 1.5rem;
+            }
+              /* Color Controls Styling */
+            .color-cell {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+            
+            .form-control-color {
+                height: 40px;
+                padding: 0;
+                border: 2px solid rgba(255,255,255,0.2);
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            
+            .form-control-color:hover {
+                transform: scale(1.05);
+                border-color: rgba(255,255,255,0.5);
+            }
+            
+            /* Card styling for color sections */
+            .card-header.bg-dark {
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                font-weight: bold;
+            }
+            
+            .card.bg-dark {
+                background-color: #222 !important;
+            }
+            
+            /* Make color inputs larger */
+            .w-100.form-control-color {
+                min-height: 45px;
+            }
+              /* Responsive grid layout */
+            @media (max-width: 768px) {
+                .texture-grid-container {
+                    grid-template-columns: repeat(5, 1fr);
+                    grid-template-rows: repeat(4, auto);
+                }
+            }
+            
+            /* Adjust color grid for side panel */
+            @media (min-width: 992px) and (max-width: 1199px) {
+                .texture-grid-container {
+                    grid-template-columns: repeat(5, 1fr);
+                    grid-template-rows: repeat(4, auto);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <div id="navbar-placeholder" class="fixed-top"></div>
+        <div style="padding-top: 90px"></div>
+        
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">            
+            <!-- Header -->
+            <div id="header-container"></div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    loadHeader('header-container', 'Armor Finish Designer', 'Design a unique Finish for your Armor');
+                });
+            </script>
+            
+            <!-- Layout for side-by-side view -->
+            <div class="row gx-4 gx-lg-5 my-4">
+                <!-- 3D Model Viewer -->
+                <div class="col-lg-7 col-md-12 mb-4 mb-lg-0">
+                    <div id="model-container">
+                        <div class="loading-spinner">
+                            <i class="fas fa-spinner fa-spin"></i> Loading model...
+                        </div>
+                    </div>
+                    <div class="text-center mt-2 text-light small">
+                        <em>Tip: Click and drag to rotate the model. Use middle mouse button to pan. Use mouse wheel to zoom.</em>
+                    </div>
+                </div>
+                
+                <!-- Control Panel for Skin Customization -->
+                <div class="col-lg-5 col-md-12">                    
+                    <div class="control-panel">
+                        <div class="card bg-dark text-light mb-4">                            
+                            <div class="card-header bg-secondary">
+                                <h5 class="card-title mb-0">Armor Color Editor</h5>
+                            </div>
+                        <div class="card-body">
+
+                        <!-- Color Controls in Labeled Sections -->
+                        <div class="mb-4">
+                            <!-- Main Colors Section -->
+                            <div class="card bg-dark border-secondary mb-3">
+                                <div class="card-header bg-dark text-light">Main</div>
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Primary</label>
+                                            <div class="color-cell mb-2">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-0-0" value="#9A9AB7" title="Main Primary" data-row="0" data-col="0">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Secondary</label>
+                                            <div class="color-cell">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-1-0" value="#73738B" title="Main Secondary" data-row="1" data-col="0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Secondary Colors Section -->
+                            <div class="card bg-dark border-secondary mb-3">
+                                <div class="card-header bg-dark text-light">Secondary</div>
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Primary</label>
+                                            <div class="color-cell mb-2">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-0-1" value="#3A7595" title="Secondary Primary" data-row="0" data-col="1">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Secondary</label>
+                                            <div class="color-cell">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-1-1" value="#193D51" title="Secondary Secondary" data-row="1" data-col="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Leather Colors Section -->
+                            <div class="card bg-dark border-secondary mb-3">
+                                <div class="card-header bg-dark text-light">Leather</div>
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Primary</label>
+                                            <div class="color-cell mb-2">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-0-2" value="#7E584A" title="Leather Primary" data-row="0" data-col="2">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Secondary</label>
+                                            <div class="color-cell">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-1-2" value="#633F3A" title="Leather Secondary" data-row="1" data-col="2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Accessories Colors Section -->
+                            <div class="card bg-dark border-secondary mb-3">
+                                <div class="card-header bg-dark text-light">Accessories</div>
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Primary</label>
+                                            <div class="color-cell mb-2">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-0-3" value="#EFAC75" title="Accessories Primary" data-row="0" data-col="3">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Secondary</label>
+                                            <div class="color-cell">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-1-3" value="#D8A46B" title="Accessories Secondary" data-row="1" data-col="3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Undersuit Colors Section -->
+                            <div class="card bg-dark border-secondary mb-3">
+                                <div class="card-header bg-dark text-light">Undersuit</div>
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Primary</label>
+                                            <div class="color-cell mb-2">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-0-4" value="#2B2B2B" title="Undersuit Primary" data-row="0" data-col="4">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="text-light mb-2">Secondary</label>
+                                            <div class="color-cell">
+                                                <input type="color" class="form-control form-control-color grid-color w-100" id="color-1-4" value="#171718" title="Undersuit Secondary" data-row="1" data-col="4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Magic Colors Section -->
+                            <div class="card bg-dark border-secondary mb-3">
+                                <div class="card-header bg-dark text-light">Magic</div>
+                                <div class="card-body">
+                                    <div class="color-cell">
+                                        <label class="text-light mb-2">Magic Glow</label>
+                                        <input type="color" class="form-control form-control-color grid-color w-100" id="color-0-5" value="#65FFFF" title="Magic Glow" data-row="0" data-col="5">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Hidden Inputs (preserved but not shown) -->
+                            <div hidden>
+                                <input type="color" class="form-control form-control-color grid-color" id="color-0-6" value="#000000" title="Position (0,6)" data-row="0" data-col="6" readonly>
+                                <input type="color" class="form-control form-control-color grid-color" id="color-0-7" value="#000000" title="Position (0,7)" data-row="0" data-col="7" readonly>
+                                <input type="color" class="form-control form-control-color grid-color" id="color-0-8" value="#000000" title="Position (0,8)" data-row="0" data-col="8" readonly>
+                                <input type="color" class="form-control form-control-color grid-color" id="color-0-9" value="#000000" title="Position (0,9)" data-row="0" data-col="9" readonly>
+                                <input type="color" class="form-control form-control-color grid-color" id="color-1-5" value="#000000" title="Position (1,5)" data-row="1" data-col="5" readonly>
+                                <input type="color" class="form-control form-control-color grid-color" id="color-1-6" value="#000000" title="Position (1,6)" data-row="1" data-col="6" readonly>
+                                <input type="color" class="form-control form-control-color grid-color" id="color-1-7" value="#000000" title="Position (1,7)" data-row="1" data-col="7" readonly>
+                                <input type="color" class="form-control form-control-color grid-color" id="color-1-8" value="#000000" title="Position (1,8)" data-row="1" data-col="8" readonly>
+                                <input type="color" class="form-control form-control-color grid-color" id="color-1-9" value="#F4F4FF" title="Position (1,9)" data-row="1" data-col="9" readonly>
+                            </div>
+                        </div>
+                        
+                        <!-- Skin Preview -->
+                        <div class="mb-4">                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="text-light">Texture Preview</h5>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-secondary" id="reset-colors">Reset to Default</button>
+                                    <button class="btn btn-sm btn-secondary" id="randomize-colors">Randomize Colors</button>
+                                </div>
+                            </div><div style="background-color: #333; padding: 10px; border-radius: 8px;">
+                                <canvas id="texture-preview" width="400" height="80" style="width: 100%; height: auto;"></canvas>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                          <!-- Outline Controls -->
+                        <div class="card bg-dark text-light mb-4">
+                            <div class="card-header bg-secondary">
+                                <h5 class="card-title mb-0">Outline Controls</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="outline-toggle" checked>
+                                    <label class="form-check-label" for="outline-toggle">Show Outline</label>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="outline-thickness" class="form-label">Outline Thickness</label>
+                                    <input type="range" class="form-range" min="1.01" max="1.1" step="0.005" value="1.03" id="outline-thickness">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="outline-color" class="form-label">Outline Color</label>
+                                    <input type="color" class="form-control form-control-color w-100" id="outline-color" value="#000000">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Download Button -->
+                        <div class="row mt-4">
+                            <div class="col-12 text-center">
+                                <button id="generate-texture" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-download me-2"></i>Generate Texture                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer-->
+        <div id="footer-placeholder"></div>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Three.js dependencies - must be loaded in this order -->
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/libs/fflate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/FBXLoader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+          <!-- Core site scripts -->        <script src="js/scripts.js"></script>
+        <script>
+            // Load header only - navbar and footer are handled by scripts.js
+            document.addEventListener('DOMContentLoaded', function() {
+                loadHeader('header-container', 'Armor Finish Designer', 'Design a unique Finish for your Armor');
+            });
+        </script>
+        
+        <!-- Custom scripts for this page -->
+        <script src="js/skinCustomizer.js"></script>
+    </body>
+</html>
